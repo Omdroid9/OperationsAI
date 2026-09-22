@@ -1,0 +1,493 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@astryxdesign/core/reset.css";
+@import "@astryxdesign/core/astryx.css";
+@import "@astryxdesign/theme-neutral/theme.css";
+@import "@astryxdesign/core/tailwind-theme.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 0.75rem;
+  --radius-3xl: 0.75rem;
+  --radius-4xl: 0.75rem;
+}
+
+:root {
+  --background: #f7f7f5;
+  --foreground: #1c1917;
+  --card: #ffffff;
+  --card-foreground: #1c1917;
+  --popover: #ffffff;
+  --popover-foreground: #1c1917;
+  --primary: #1c1917;
+  --primary-foreground: #fafaf9;
+  --secondary: #f5f5f4;
+  --secondary-foreground: #1c1917;
+  --muted: #f5f5f4;
+  --muted-foreground: #78716c;
+  --accent: #f5f5f4;
+  --accent-foreground: #1c1917;
+  --destructive: #b42318;
+  --destructive-foreground: #fff7f6;
+  --border: #e7e5e4;
+  --input: #e7e5e4;
+  --ring: #a8a29e;
+  --success: #067647;
+  --success-foreground: #ecfdf3;
+  --warning: #b54708;
+  --warning-foreground: #fffaeb;
+  --info: #175cd3;
+  --info-foreground: #eff8ff;
+  --radius: 0.5rem;
+  --sidebar: #f7f7f5;
+  --sidebar-foreground: #1c1917;
+  --sidebar-primary: #1c1917;
+  --sidebar-primary-foreground: #fafaf9;
+  --sidebar-accent: #ecebe8;
+  --sidebar-accent-foreground: #1c1917;
+  --sidebar-border: #e7e5e4;
+  --sidebar-ring: #a8a29e;
+}
+
+.dark {
+  --background: #121110;
+  --foreground: #f5f5f4;
+  --card: #1c1b19;
+  --card-foreground: #f5f5f4;
+  --popover: #1c1b19;
+  --popover-foreground: #f5f5f4;
+  --primary: #f5f5f4;
+  --primary-foreground: #1c1917;
+  --secondary: #242220;
+  --secondary-foreground: #f5f5f4;
+  --muted: #242220;
+  --muted-foreground: #a8a29e;
+  --accent: #242220;
+  --accent-foreground: #f5f5f4;
+  --destructive: #f97066;
+  --destructive-foreground: #2a0f0c;
+  --border: #2a2826;
+  --input: #2a2826;
+  --ring: #78716c;
+  --success: #75e0a7;
+  --success-foreground: #053321;
+  --warning: #fec84b;
+  --warning-foreground: #3b2208;
+  --info: #84caff;
+  --info-foreground: #102a56;
+  --sidebar: #121110;
+  --sidebar-foreground: #f5f5f4;
+  --sidebar-primary: #f5f5f4;
+  --sidebar-primary-foreground: #1c1917;
+  --sidebar-accent: #242220;
+  --sidebar-accent-foreground: #f5f5f4;
+  --sidebar-border: #2a2826;
+  --sidebar-ring: #78716c;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply font-sans;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* Public marketing — Huckleberry editorial layout, SkyOS stone + ink */
+html:has(.marketing) {
+  scroll-behavior: smooth;
+}
+
+.marketing {
+  --mkt-ink: #1c1917;
+  --mkt-ink-muted: #57534e;
+  --mkt-ink-faint: #78716c;
+  --mkt-brand: #1c1917;
+  --mkt-brand-deep: #0c0a09;
+  --mkt-on-dark: #fafaf9;
+  --mkt-on-dark-hover: #ffffff;
+  --mkt-on-dark-muted: rgba(255, 255, 255, 0.86);
+  --mkt-on-dark-faint: rgba(255, 255, 255, 0.72);
+  --mkt-canvas: #fafaf9;
+  --mkt-snow: #ffffff;
+  --mkt-sand: #f5f5f4;
+  --mkt-bg: var(--mkt-canvas);
+  --mkt-fg: var(--mkt-ink);
+  --mkt-muted: var(--mkt-ink-muted);
+  --mkt-surface: var(--mkt-snow);
+  --mkt-border: #e7e5e4;
+  --mkt-accent: var(--mkt-brand);
+  --mkt-accent-hover: var(--mkt-brand-deep);
+  --mkt-accent-soft: var(--mkt-sand);
+  --mkt-link: var(--mkt-ink);
+  --mkt-content-max: 72rem;
+  --mkt-section-y: 4rem;
+  --mkt-section-y-lg: 6rem;
+  --mkt-section-y-compact: 2.5rem;
+  --mkt-banner-min-h: min(72vh, 640px);
+  --mkt-radius: 3px;
+  --mkt-radius-sm: 3px;
+  --mkt-shadow: 0 1px 0 rgba(28, 25, 23, 0.06);
+  --mkt-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.65;
+  background-color: var(--mkt-bg);
+  color: var(--mkt-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.marketing h1,
+.marketing h2,
+.marketing h3,
+.marketing h4,
+.marketing .mkt-title-hero,
+.marketing .mkt-title-page,
+.marketing .mkt-title-section,
+.marketing .mkt-title-card {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.marketing .mkt-on-dark,
+.marketing .mkt-on-dark h1,
+.marketing .mkt-on-dark h2,
+.marketing .mkt-on-dark h3,
+.marketing .mkt-on-dark .mkt-title-hero,
+.marketing .mkt-on-dark .mkt-title-page,
+.marketing .mkt-on-dark .mkt-title-section {
+  color: #ffffff;
+}
+
+.marketing .mkt-on-dark .mkt-lead,
+.marketing .mkt-on-dark .mkt-body,
+.marketing .mkt-on-dark .mkt-label {
+  color: var(--mkt-on-dark-muted);
+}
+
+.marketing .mkt-title-hero {
+  font-size: clamp(2rem, 4.8vw, 3.4rem);
+  line-height: 1.12;
+}
+
+.marketing .mkt-title-page {
+  max-width: 36rem;
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+}
+
+.marketing .mkt-title-section {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.marketing .mkt-title-card {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.marketing .mkt-lead {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--mkt-ink-muted);
+  max-width: 36rem;
+}
+
+@media (min-width: 768px) {
+  .marketing .mkt-lead {
+    font-size: 1.0625rem;
+  }
+}
+
+.marketing .mkt-body {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: var(--mkt-ink-muted);
+}
+
+.marketing .mkt-label {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--mkt-ink-faint);
+}
+
+.marketing .mkt-eyebrow {
+  display: none;
+}
+
+.marketing .mkt-rule-brand {
+  width: 3rem;
+  height: 1px;
+  background-color: var(--mkt-brand);
+}
+
+.marketing .mkt-rule-accent {
+  width: 3rem;
+  height: 1px;
+  background-color: color-mix(in srgb, white 70%, transparent);
+}
+
+.marketing .mkt-rule-soft {
+  width: 3rem;
+  height: 1px;
+  background-color: color-mix(in srgb, white 55%, transparent);
+}
+
+.marketing .mkt-nav-link {
+  position: relative;
+  padding-block: 0.25rem;
+}
+
+.marketing .mkt-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1.5px;
+  background: var(--mkt-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--mkt-ease);
+}
+
+.marketing .mkt-nav-link:hover::after,
+.marketing .mkt-nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.marketing .mkt-text-link {
+  border-bottom: 1px solid var(--mkt-brand);
+  padding-bottom: 0.125rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--mkt-brand);
+  transition: opacity 0.2s;
+}
+
+.marketing .mkt-text-link:hover {
+  opacity: 0.7;
+}
+
+.marketing .mkt-text-link-on-dark {
+  border-bottom: 1px solid color-mix(in srgb, white 45%, transparent);
+  padding-bottom: 0.125rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: color-mix(in srgb, white 85%, transparent);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.marketing .mkt-text-link-on-dark:hover {
+  border-color: white;
+  color: white;
+}
+
+.marketing .mkt-form-card {
+  border: 1px solid var(--mkt-border);
+  border-radius: var(--mkt-radius);
+  background: var(--mkt-surface);
+  box-shadow: var(--mkt-shadow);
+}
+
+.marketing .mkt-media {
+  position: relative;
+  overflow: hidden;
+  background: var(--mkt-border);
+}
+
+.marketing .mkt-banner-frame {
+  position: relative;
+  min-height: var(--mkt-banner-min-h);
+  width: 100%;
+}
+
+.marketing .mkt-banner-copy {
+  position: relative;
+  display: flex;
+  min-height: var(--mkt-banner-min-h);
+  width: 100%;
+  max-width: var(--mkt-content-max);
+  margin-inline: auto;
+  align-items: flex-end;
+  padding: 8rem 1.5rem 3.5rem;
+}
+
+@media (min-width: 768px) {
+  .marketing .mkt-banner-copy {
+    align-items: center;
+    padding: 7rem 2rem 4rem;
+  }
+}
+
+.marketing .mkt-field-input {
+  height: 2.25rem;
+  border-color: var(--mkt-border);
+  border-radius: var(--mkt-radius-sm);
+  background: var(--mkt-bg);
+}
+
+.marketing .mkt-field-input:focus-visible {
+  border-color: var(--mkt-accent);
+  --tw-ring-color: color-mix(in srgb, var(--mkt-accent) 22%, transparent);
+}
+
+.marketing .mkt-field-input[aria-invalid="true"] {
+  border-color: var(--destructive);
+}
+
+.marketing .mkt-field-line {
+  height: auto;
+  min-height: 2.75rem;
+  width: 100%;
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--mkt-ink) 25%, transparent);
+  background: transparent;
+  box-shadow: none;
+  padding: 0.75rem 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--mkt-ink);
+}
+
+.marketing .mkt-field-line::placeholder {
+  color: color-mix(in srgb, var(--mkt-ink) 32%, transparent);
+}
+
+.marketing .mkt-field-line:focus-visible {
+  border-bottom-color: var(--mkt-ink);
+  outline: none;
+  box-shadow: none;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-ring-color: transparent;
+}
+
+.marketing .mkt-field-line[aria-invalid="true"] {
+  border-bottom-color: var(--destructive);
+}
+
+.marketing .mkt-field-line:disabled {
+  background: transparent;
+  opacity: 0.55;
+}
+
+.marketing .mkt-reveal {
+  animation: mkt-fade-up 500ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marketing .mkt-reveal {
+    animation: none;
+  }
+}
+
+@keyframes mkt-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.marketing .mkt-stagger > * {
+  animation: mkt-fade-up 500ms ease-out both;
+}
+
+.marketing .mkt-stagger > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+.marketing .mkt-stagger > *:nth-child(2) {
+  animation-delay: 80ms;
+}
+.marketing .mkt-stagger > *:nth-child(3) {
+  animation-delay: 160ms;
+}
+.marketing .mkt-stagger > *:nth-child(4) {
+  animation-delay: 240ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marketing .mkt-stagger > * {
+    animation: none;
+  }
+}
