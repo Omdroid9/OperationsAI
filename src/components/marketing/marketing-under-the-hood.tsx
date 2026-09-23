@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { MarketingProductShot } from "@/components/marketing/marketing-product-shot";
 import { MarketingSectionRule } from "@/components/marketing/marketing-section-rule";
 
 const PARTS = [
@@ -36,8 +36,8 @@ export function MarketingUnderTheHood() {
             </h2>
             <MarketingSectionRule tone="brand" className="mt-5" />
             <p className="mt-6 font-sans text-base leading-relaxed text-[var(--mkt-ink-muted)]">
-              Models help extract text and structure calls. They do not decide outreach, Won,
-              or compliance outcomes. Provenance stays visible: source data vs inferred fields.
+              Models help extract text and structure calls. They do not decide outreach, Won, or
+              compliance outcomes. Provenance stays visible: source data vs inferred fields.
             </p>
           </div>
 
@@ -56,26 +56,23 @@ export function MarketingUnderTheHood() {
           </ul>
         </div>
 
-        <figure className="mt-14 overflow-hidden rounded-[10px] border border-[var(--mkt-border)] bg-[var(--mkt-canvas)]">
-          <div className="relative aspect-[16/9] w-full md:aspect-[21/9]">
-            <Image
-              src="/presentations/shots/10-docket-confirm.png"
-              alt="Confirm extracted document fields before they drive the Docket case"
-              fill
-              quality={85}
-              className="object-cover object-top"
-              sizes="(max-width: 768px) 100vw, 88rem"
-            />
-          </div>
-          <figcaption className="border-t border-[var(--mkt-border)] px-5 py-4 md:px-6">
+        <div className="mt-14">
+          <MarketingProductShot
+            src="/marketing/product-shots/10-docket-confirm.png"
+            alt="Confirm extracted document fields before they drive the Docket case"
+            pathLabel="skyos.app / docket · confirm fields"
+            aspectClassName="aspect-[16/9] md:aspect-[21/10]"
+            sizes="(max-width: 768px) 100vw, 88rem"
+          />
+          <div className="mt-4 max-w-2xl px-1">
             <p className="font-sans text-sm font-medium text-[var(--mkt-ink)]">
               Confirm extracted fields
             </p>
             <p className="mt-1 font-sans text-sm text-[var(--mkt-ink-muted)]">
               Extraction is a draft. A person confirms names and dates before fulfillment trusts them.
             </p>
-          </figcaption>
-        </figure>
+          </div>
+        </div>
       </div>
     </section>
   );

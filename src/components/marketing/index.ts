@@ -16,6 +16,7 @@ export { MarketingMonitoringBand } from "@/components/marketing/marketing-monito
 export { MarketingProofStrip } from "@/components/marketing/marketing-proof-strip";
 export { MarketingProductHero } from "@/components/marketing/marketing-product-hero";
 export { MarketingProductPreview } from "@/components/marketing/marketing-product-preview";
+export { MarketingProductShot } from "@/components/marketing/marketing-product-shot";
 export { MarketingVoiceSection } from "@/components/marketing/marketing-voice-section";
 export { MarketingUnderTheHood } from "@/components/marketing/marketing-under-the-hood";
 export { MarketingSplitHero } from "@/components/marketing/marketing-split-hero";

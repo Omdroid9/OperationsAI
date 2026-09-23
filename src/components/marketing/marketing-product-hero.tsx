@@ -1,10 +1,10 @@
 "use client";
 
 import { MarketingPrimaryButton } from "@/components/marketing/marketing-button";
+import { MarketingProductShot } from "@/components/marketing/marketing-product-shot";
 import { MarketingSectionRule } from "@/components/marketing/marketing-section-rule";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
@@ -70,28 +70,15 @@ export function MarketingProductHero() {
         </div>
       </div>
 
-      <div data-hero-anim className="relative mx-auto mt-12 max-w-[88rem] px-4 pb-0 sm:px-6 md:mt-16 md:px-8">
-        <figure className="overflow-hidden rounded-t-[10px] border border-b-0 border-[var(--mkt-border)] bg-[var(--mkt-snow)] shadow-[0_24px_60px_-28px_rgba(28,25,23,0.35)]">
-          <div className="flex items-center gap-2 border-b border-[var(--mkt-border)] bg-[var(--mkt-sand)] px-4 py-2.5">
-            <span className="h-2 w-2 rounded-full bg-[color-mix(in_srgb,var(--mkt-ink)_25%,transparent)]" />
-            <span className="h-2 w-2 rounded-full bg-[color-mix(in_srgb,var(--mkt-ink)_25%,transparent)]" />
-            <span className="h-2 w-2 rounded-full bg-[color-mix(in_srgb,var(--mkt-ink)_25%,transparent)]" />
-            <span className="ml-3 font-mono text-[0.7rem] text-[var(--mkt-ink-faint)]">
-              skyos.app / opportunities
-            </span>
-          </div>
-          <div className="relative aspect-[16/9] w-full sm:aspect-[16/8.5]">
-            <Image
-              src="/presentations/shots/02-opportunities.png"
-              alt="SkyOS Opportunities queue with scores, stages, and next actions"
-              fill
-              priority
-              quality={85}
-              className="object-cover object-top"
-              sizes="(max-width: 768px) 100vw, 88rem"
-            />
-          </div>
-        </figure>
+      <div data-hero-anim className="relative mx-auto mt-12 max-w-[88rem] px-4 pb-10 sm:px-6 md:mt-16 md:px-8">
+        <MarketingProductShot
+          src="/marketing/product-shots/02-opportunities.png"
+          alt="SkyOS Overview needs-attention board"
+          pathLabel="skyos.app / overview"
+          aspectClassName="aspect-[16/9] md:aspect-[21/10]"
+          priority
+          className="rounded-b-[10px] shadow-[0_24px_60px_-28px_rgba(28,25,23,0.35)]"
+        />
       </div>
     </section>
   );

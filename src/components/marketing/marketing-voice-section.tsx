@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { MarketingProductShot } from "@/components/marketing/marketing-product-shot";
 import { MarketingSectionRule } from "@/components/marketing/marketing-section-rule";
 
 const HOOD = [
@@ -39,65 +39,38 @@ export function MarketingVoiceSection() {
           truth.
         </p>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:gap-8">
-          <figure className="overflow-hidden rounded-[10px] border border-[var(--mkt-border)] bg-[var(--mkt-snow)]">
-            <div className="flex aspect-[16/11] flex-col justify-center gap-4 bg-[var(--mkt-canvas)] px-6 py-8 md:px-8">
-              <p className="font-sans text-sm font-medium text-[var(--mkt-ink)]">
-                Start qualification call
-              </p>
-              <p className="font-sans text-sm leading-relaxed text-[var(--mkt-ink-muted)]">
-                Staff confirm consent, enter an allowlisted test number, then start the Dograh call.
-                The agent must not mark Won, open a case, or give legal advice.
-              </p>
-              <ul className="space-y-2 font-sans text-sm text-[var(--mkt-ink-muted)]">
-                <li className="flex gap-2">
-                  <span aria-hidden className="text-[var(--mkt-ink)]">
-                    ✓
-                  </span>
-                  Consent confirmed
-                </li>
-                <li className="flex gap-2">
-                  <span aria-hidden className="text-[var(--mkt-ink)]">
-                    ✓
-                  </span>
-                  Number on server allowlist
-                </li>
-                <li className="flex gap-2">
-                  <span aria-hidden className="text-[var(--mkt-ink)]">
-                    ✓
-                  </span>
-                  Staff review after the call
-                </li>
-              </ul>
-            </div>
-            <figcaption className="border-t border-[var(--mkt-border)] px-5 py-4">
-              <p className="font-sans text-sm font-medium text-[var(--mkt-ink)]">
-                Start qualification call
-              </p>
+        <div className="mt-12 space-y-10">
+          <div>
+            <MarketingProductShot
+              src="/marketing/product-shots/08-call-transcript.png"
+              alt="Qualification call transcript with staff review"
+              pathLabel="skyos.app / calls · transcript"
+              aspectClassName="aspect-[16/9] md:aspect-[21/10]"
+              sizes="(max-width: 768px) 100vw, 88rem"
+            />
+            <div className="mt-4 max-w-2xl px-1">
+              <p className="font-sans text-sm font-medium text-[var(--mkt-ink)]">Call transcript</p>
               <p className="mt-1 font-sans text-sm text-[var(--mkt-ink-muted)]">
-                Consent and allowlist before Dograh dials.
+                Conversation stays on the record for staff to review.
               </p>
-            </figcaption>
-          </figure>
-
-          <figure className="overflow-hidden rounded-[10px] border border-[var(--mkt-border)] bg-[var(--mkt-snow)]">
-            <div className="relative aspect-[16/11] w-full">
-              <Image
-                src="/presentations/shots/07-call-summary.png"
-                alt="Call summary with extracted qualification fields"
-                fill
-                quality={85}
-                className="object-cover object-top"
-                sizes="(max-width: 1024px) 100vw, 44rem"
-              />
             </div>
-            <figcaption className="border-t border-[var(--mkt-border)] px-5 py-4">
+          </div>
+
+          <div>
+            <MarketingProductShot
+              src="/marketing/product-shots/07-call-summary.png"
+              alt="Call summary with extracted qualification fields"
+              pathLabel="skyos.app / calls · summary"
+              aspectClassName="aspect-[16/9] md:aspect-[21/10]"
+              sizes="(max-width: 768px) 100vw, 88rem"
+            />
+            <div className="mt-4 max-w-2xl px-1">
               <p className="font-sans text-sm font-medium text-[var(--mkt-ink)]">Call summary</p>
               <p className="mt-1 font-sans text-sm text-[var(--mkt-ink-muted)]">
                 Transcript fields update the CRM after a person reviews them.
               </p>
-            </figcaption>
-          </figure>
+            </div>
+          </div>
         </div>
 
         <div className="mt-14 border-t border-[var(--mkt-border)] pt-12">

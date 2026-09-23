@@ -1,28 +1,34 @@
-import Image from "next/image";
+import { MarketingProductShot } from "@/components/marketing/marketing-product-shot";
 import { MarketingSectionRule } from "@/components/marketing/marketing-section-rule";
-
-const FEATURED = {
-  src: "/presentations/shots/04-crm-consultation.png",
-  alt: "SkyOS CRM opportunity with Detect → Fulfill stages and consultation handoff",
-  label: "CRM — consultation handoff",
-  caption: "One record from inbound lead through Convert. Next action stays on the page.",
-} as const;
 
 const SHOTS = [
   {
-    src: "/presentations/shots/09-docket-case.png",
+    src: "/marketing/product-shots/05-crm-approve.png",
+    alt: "SkyOS CRM opportunity ready to approve service",
+    label: "CRM — approve service",
+    caption: "One record from inbound lead through Convert. Next action stays on the page.",
+    pathLabel: "skyos.app / crm",
+  },
+  {
+    src: "/marketing/product-shots/09-docket-case.png",
     alt: "SkyOS Docket case with required documents and missing items",
     label: "Docket",
+    caption: "Checklist, uploads, and what is still missing to fulfill the case.",
+    pathLabel: "skyos.app / docket",
   },
   {
-    src: "/presentations/shots/11-docket-extracted.png",
+    src: "/marketing/product-shots/11-docket-extracted.png",
     alt: "SkyOS document fields extracted for staff confirmation",
     label: "Document fields",
+    caption: "Extraction is a draft. Staff confirm names and dates before they drive the case.",
+    pathLabel: "skyos.app / docket · review",
   },
   {
-    src: "/presentations/shots/12-reglens.png",
+    src: "/marketing/product-shots/12-reglens.png",
     alt: "SkyOS RegLens FMCSA notices queue",
     label: "RegLens",
+    caption: "Fetch notices, then review customers who may need follow-up.",
+    pathLabel: "skyos.app / reglens",
   },
 ] as const;
 
@@ -40,45 +46,24 @@ export function MarketingProductPreview() {
         </h2>
         <MarketingSectionRule tone="brand" className="mt-5" />
         <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-[var(--mkt-ink-muted)]">
-          These are the same views staff use day to day—not mockups. Scroll the product after you
-          Access product.
+          Each frame shows one product view—browser tabs and desktop chrome removed so the UI stays
+          readable. Access the product to run the seeded demo.
         </p>
 
-        <figure className="mt-12 overflow-hidden rounded-[10px] border border-[var(--mkt-border)] bg-[var(--mkt-canvas)]">
-          <div className="relative aspect-[16/9] w-full md:aspect-[21/10]">
-            <Image
-              src={FEATURED.src}
-              alt={FEATURED.alt}
-              fill
-              quality={85}
-              className="object-cover object-top"
-              sizes="(max-width: 768px) 100vw, 88rem"
-            />
-          </div>
-          <figcaption className="border-t border-[var(--mkt-border)] px-5 py-4 md:px-6">
-            <p className="font-sans text-sm font-medium text-[var(--mkt-ink)]">{FEATURED.label}</p>
-            <p className="mt-1 font-sans text-sm text-[var(--mkt-ink-muted)]">{FEATURED.caption}</p>
-          </figcaption>
-        </figure>
-
-        <ul className="mt-8 grid gap-6 md:grid-cols-3 md:gap-5">
+        <ul className="mt-12 space-y-10">
           {SHOTS.map((shot) => (
             <li key={shot.src}>
-              <figure className="overflow-hidden rounded-[8px] border border-[var(--mkt-border)] bg-[var(--mkt-canvas)]">
-                <div className="relative aspect-[16/10] w-full">
-                  <Image
-                    src={shot.src}
-                    alt={shot.alt}
-                    fill
-                    quality={80}
-                    className="object-cover object-top"
-                    sizes="(max-width: 768px) 100vw, 28rem"
-                  />
-                </div>
-                <figcaption className="border-t border-[var(--mkt-border)] px-4 py-3 font-sans text-sm font-medium text-[var(--mkt-ink)]">
-                  {shot.label}
-                </figcaption>
-              </figure>
+              <MarketingProductShot
+                src={shot.src}
+                alt={shot.alt}
+                pathLabel={shot.pathLabel}
+                aspectClassName="aspect-[16/9] md:aspect-[21/10]"
+                sizes="(max-width: 768px) 100vw, 88rem"
+              />
+              <div className="mt-4 max-w-2xl px-1">
+                <p className="font-sans text-sm font-medium text-[var(--mkt-ink)]">{shot.label}</p>
+                <p className="mt-1 font-sans text-sm text-[var(--mkt-ink-muted)]">{shot.caption}</p>
+              </div>
             </li>
           ))}
         </ul>
