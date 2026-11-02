@@ -1,5 +1,6 @@
 "use client";
 
+import { SimilarNoticesPanel } from "@/components/reglens/similar-notices-panel";
 import { CarrierName } from "@/components/shared/profile-kind";
 import { EmptyState, ErrorState, TableSkeleton } from "@/components/shared/empty-state";
 import { NextStepPanel } from "@/components/shared/next-step";
@@ -31,6 +32,7 @@ import {
   useMatches,
   useRegulation,
   useRegulationMutations,
+  useSimilarNotices,
 } from "@/hooks/use-skyos";
 import { staffDisplayName } from "@/data/staff";
 import { formatDate, formatPercent } from "@/lib/format";
@@ -118,6 +120,7 @@ export default function RegLensDetailPage() {
   const params = useParams<{ id: string }>();
   const regulationQuery = useRegulation(params.id);
   const matchesQuery = useMatches(params.id);
+  const similarQuery = useSimilarNotices(params.id);
   const carriers = useCarriers();
   const cases = useCases();
   const invalidate = useInvalidateAll();
@@ -126,6 +129,7 @@ export default function RegLensDetailPage() {
   const [relevantOpen, setRelevantOpen] = useState(false);
   const [caseId, setCaseId] = useState("");
   const [reason, setReason] = useState("");
+  const [similarReviewed, setSimilarReviewed] = useState(false);
 
   if (regulationQuery.isLoading) {
     return (
@@ -178,7 +182,7 @@ export default function RegLensDetailPage() {
             </Button>
             <Button
               variant="outline"
-              disabled={regulation.customersFlagged}
+              disabled={regulation.customersFlagged || !similarReviewed}
               onClick={async () => {
                 const count = await getRegulationRepository().flagCustomers(regulation.id);
                 invalidate();
@@ -194,13 +198,19 @@ export default function RegLensDetailPage() {
       <div className="mt-5">
         <NextStepPanel
           title={
-            customerMatches.length > 0
-              ? "Review current customers, then flag or mark a case"
-              : "No current customers matched — mark a case if review is still needed"
+            !similarReviewed
+              ? "Review similar notices before flagging customers"
+              : customerMatches.length > 0
+                ? "Review current customers, then flag or mark a case"
+                : "No current customers matched — mark a case if review is still needed"
           }
-          body="Matching is a suggested overlap with customer profiles, not a compliance finding. Mark relevant to case creates a Docket task for the owner."
+          body="Matching is a suggested overlap with customer profiles and retrieved notices, not a compliance finding. Mark relevant to case creates a Docket task for the owner."
           action={
-            <Button onClick={() => setRelevantOpen(true)}>Mark relevant to case</Button>
+            !similarReviewed ? (
+              <Button onClick={() => setSimilarReviewed(true)}>Mark similar notices reviewed</Button>
+            ) : (
+              <Button onClick={() => setRelevantOpen(true)}>Mark relevant to case</Button>
+            )
           }
         />
       </div>
@@ -251,6 +261,13 @@ export default function RegLensDetailPage() {
         />
       </dl>
       <p className="mt-4 max-w-2xl text-sm text-muted-foreground">{regulation.sourceSummary}</p>
+
+      <SimilarNoticesPanel
+        result={similarQuery.data}
+        loading={similarQuery.isLoading}
+        reviewed={similarReviewed}
+        onReviewed={() => setSimilarReviewed(true)}
+      />
 
       <p className="mt-6 text-sm">
         Current customers matched{" "}

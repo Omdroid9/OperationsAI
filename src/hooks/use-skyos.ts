@@ -146,6 +146,14 @@ export function useMatches(regulationId: string) {
   });
 }
 
+export function useSimilarNotices(regulationId: string) {
+  return useQuery({
+    queryKey: queryKeys.similarNotices(regulationId),
+    queryFn: () => getRegulationRepository().getSimilarNotices(regulationId),
+    enabled: Boolean(regulationId),
+  });
+}
+
 export function useAllMatches() {
   return useQuery({
     queryKey: queryKeys.allMatches,

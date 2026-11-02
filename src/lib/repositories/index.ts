@@ -5,6 +5,11 @@ import type { CensusProspectSaveInput } from "@/lib/prospecting/types";
 import { isDemoMode, LIVE_MODE_SETUP } from "@/lib/mode/demo-mode";
 import { filterLiveWorkspace } from "@/lib/mode/live-workspace";
 import type { NormalizedFmcsaCarrier } from "@/lib/providers/types";
+import {
+  buildRegulationRagResult,
+  emptyRegulationRagResult,
+  type RegulationRagResult,
+} from "@/lib/regulations/rag";
 import type {
   Activity,
   CallRecord,
@@ -131,6 +136,7 @@ export interface RegulationRepository {
   ): Promise<{ imported: number; skipped: number }>;
   clearFederalRegisterRegulations(): Promise<number>;
   getAllMatches(): Promise<Record<string, RegulationMatch[]>>;
+  getSimilarNotices(regulationId: string): Promise<RegulationRagResult>;
   markRelevantToCase(
     regulationId: string,
     caseId: string,
@@ -339,6 +345,24 @@ export const demoRegulationRepository: RegulationRepository = {
   },
   async getAllMatches() {
     return delay({ ...workspace().matches });
+  },
+  async getSimilarNotices(regulationId) {
+    const state = workspace();
+    const regulation = state.regulations.find((item) => item.id === regulationId) ?? null;
+    if (!regulation) {
+      return delay(emptyRegulationRagResult(regulationId));
+    }
+    if (regulation.status === "needs_review" && !regulation.sourceText.trim()) {
+      return delay(emptyRegulationRagResult(regulationId));
+    }
+    return delay(
+      buildRegulationRagResult({
+        regulation,
+        matches: state.matches[regulationId] ?? [],
+        workspaceRegulations: state.regulations,
+        limit: 4,
+      }),
+    );
   },
   async markRelevantToCase(regulationId, caseId, reason, decidedBy) {
     return demoStore.markRegulationRelevantToCase(regulationId, caseId, reason, decidedBy);
