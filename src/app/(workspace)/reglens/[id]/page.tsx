@@ -58,10 +58,12 @@ function CustomerMatchList({
   matches,
   carrierMap,
   caseByCarrier,
+  supportingByCarrier,
 }: {
   matches: RegulationMatch[];
   carrierMap: Map<string, Carrier>;
   caseByCarrier: Map<string, string>;
+  supportingByCarrier: Map<string, string[]>;
 }) {
   if (matches.length === 0) {
     return (
@@ -80,12 +82,13 @@ function CustomerMatchList({
       <h2 className="text-sm font-medium">Current customers</h2>
       <p className="mt-1 text-sm text-muted-foreground">
         What may need to change for carriers you already serve. Flagging adds a task on their Docket
-        case.
+        case. Supporting notices are retrieved citations, not proof.
       </p>
       <ul className="mt-3 max-w-2xl divide-y divide-border border-y border-border">
         {matches.map((match) => {
           const carrier = carrierMap.get(match.carrierId);
           const caseId = caseByCarrier.get(match.carrierId);
+          const supporting = supportingByCarrier.get(match.carrierId) ?? [];
           return (
             <li key={match.carrierId} className="py-3 text-sm">
               <div className="flex items-start justify-between gap-3">
@@ -95,6 +98,11 @@ function CustomerMatchList({
                   <p className="mt-2 text-sm text-foreground">
                     Recommended change: {match.requiredChange}
                   </p>
+                  {supporting.length > 0 ? (
+                    <p className="mt-2 text-xs text-muted-foreground">
+                      Supporting notices: {supporting.join("; ")}
+                    </p>
+                  ) : null}
                 </div>
                 <div className="flex shrink-0 flex-col items-end gap-1.5">
                   <StatusBadge
@@ -156,6 +164,12 @@ export default function RegLensDetailPage() {
   const carrierMap = new Map((carriers.data ?? []).map((item) => [item.id, item]));
   const caseByCarrier = new Map((cases.data ?? []).map((item) => [item.carrierId, item.id]));
   const customerMatches = (matchesQuery.data ?? []).filter((item) => item.audience === "customer");
+  const supportingByCarrier = new Map(
+    (similarQuery.data?.matchGrounding ?? []).map((item) => [
+      item.carrierId,
+      item.supportingTitles,
+    ]),
+  );
   const openCases = (cases.data ?? []).filter((item) => item.status !== "COMPLETE");
 
   return (
@@ -278,6 +292,7 @@ export default function RegLensDetailPage() {
         matches={customerMatches}
         carrierMap={carrierMap}
         caseByCarrier={caseByCarrier}
+        supportingByCarrier={supportingByCarrier}
       />
 
       <Dialog open={relevantOpen} onOpenChange={setRelevantOpen}>

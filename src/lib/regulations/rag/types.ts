@@ -19,8 +19,16 @@ export interface RegulationChunk {
 export interface RetrievedNotice {
   chunk: RegulationChunk;
   score: number;
+  /** Dense cosine contribution before RRF fusion (0–1). */
+  denseScore: number;
+  /** BM25 raw score for this chunk. */
+  bm25Score: number;
+  /** RRF fusion score (Cormack et al., k=60). */
+  rrfScore: number;
   overlapTerms: string[];
   whyRelated: string;
+  /** Fraction of overlap terms attested in the cited chunk text. */
+  citationFaithfulness: number;
 }
 
 export interface MatchGrounding {
@@ -28,13 +36,14 @@ export interface MatchGrounding {
   matchType: "confirmed" | "potential" | "unknown";
   profileReason: string;
   supportingNoticeIds: string[];
+  supportingTitles: string[];
   reviewRecommended: boolean;
 }
 
 export interface RegulationRagResult {
   regulationId: string;
   queryText: string;
-  method: "lexical_seeded_index";
+  method: "hybrid_bm25_dense_rrf";
   similarNotices: RetrievedNotice[];
   matchGrounding: MatchGrounding[];
   disclaimer: string;
