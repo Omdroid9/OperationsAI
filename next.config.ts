@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   // Allow ngrok / tunnel origins to load dev chunks (Next.js blocks cross-origin dev assets by default).
   allowedDevOrigins: ["*.ngrok-free.dev", "*.ngrok-free.app", "*.ngrok.io"],
   transpilePackages: ["@astryxdesign/core", "@astryxdesign/theme-neutral"],
+  images: { qualities: [75, 90] },
   // Native canvas bindings must stay external for Node route builds (Vercel / Turbopack).
   serverExternalPackages: ["@napi-rs/canvas", "pdfjs-dist"],
   async redirects() {

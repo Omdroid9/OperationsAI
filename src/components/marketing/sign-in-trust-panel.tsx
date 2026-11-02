@@ -32,10 +32,10 @@ export function SignInTrustPanel() {
         </p>
         <div className="mt-4 flex flex-col items-start gap-3">
           <Link href="/#product" className="mkt-text-link">
-            Product screens
+            See the product
           </Link>
-          <Link href="/#modules" className="mkt-text-link">
-            Feature list
+          <Link href="/#faq" className="mkt-text-link">
+            Questions
           </Link>
         </div>
       </div>

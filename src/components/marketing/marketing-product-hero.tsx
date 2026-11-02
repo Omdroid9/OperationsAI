@@ -2,7 +2,6 @@
 
 import { MarketingPrimaryButton } from "@/components/marketing/marketing-button";
 import { MarketingProductShot } from "@/components/marketing/marketing-product-shot";
-import { MarketingSectionRule } from "@/components/marketing/marketing-section-rule";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
@@ -17,12 +16,11 @@ export function MarketingProductHero() {
     () => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       gsap.from("[data-hero-anim]", {
-        opacity: 0,
-        y: 10,
-        duration: 0.55,
-        stagger: 0.06,
-        ease: "power2.out",
-        clearProps: "opacity,transform",
+        y: 8,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: "expo.out",
+        clearProps: "transform",
       });
     },
     { scope: root },
@@ -31,53 +29,44 @@ export function MarketingProductHero() {
   return (
     <section
       ref={root}
-      className="relative overflow-hidden border-b border-[var(--mkt-border)] bg-[var(--mkt-canvas)]"
-      aria-label="Product introduction"
+      className="border-b border-[var(--mkt-border)] bg-[var(--mkt-canvas)]"
+      aria-labelledby="hero-title"
     >
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_0%,rgba(28,25,23,0.06),transparent_55%),radial-gradient(ellipse_at_90%_10%,rgba(28,25,23,0.04),transparent_45%)]"
-        aria-hidden
-      />
-
-      <div className="relative mx-auto max-w-[var(--mkt-content-max)] px-6 pt-28 md:px-8 md:pt-32">
-        <p
-          data-hero-anim
-          className="font-[family-name:var(--font-display)] text-[clamp(2.25rem,5vw,3.5rem)] tracking-tight text-[var(--mkt-ink)]"
-        >
-          SkyOS
-        </p>
-        <h1
-          data-hero-anim
-          className="mt-3 max-w-2xl font-sans text-[clamp(1.35rem,2.8vw,1.85rem)] font-medium leading-snug tracking-tight text-[var(--mkt-ink-muted)]"
-        >
-          From inbound lead to compliance case—in one staff product.
-        </h1>
-        <div data-hero-anim>
-          <MarketingSectionRule tone="brand" className="mt-5" />
+      <div className="mx-auto grid max-w-[var(--mkt-content-max)] items-end gap-10 px-6 pt-28 md:grid-cols-12 md:gap-12 md:px-8 md:pt-32">
+        <div data-hero-anim className="md:col-span-7">
+          <h1 id="hero-title" className="mkt-title-hero text-[var(--mkt-ink)]">
+            Staff workspace for a trucking compliance agency
+          </h1>
+          <p className="mt-5 max-w-[42ch] font-sans text-lg leading-relaxed text-[var(--mkt-ink-muted)]">
+            Carriers never log in. Staff take inbound work from review to an open service case.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-6">
+            <MarketingPrimaryButton href="/access">Access product</MarketingPrimaryButton>
+            <Link href="#product" className="mkt-text-link">
+              See the product
+            </Link>
+          </div>
         </div>
-        <p
-          data-hero-anim
-          className="mt-6 max-w-xl font-sans text-base leading-relaxed text-[var(--mkt-ink-muted)] md:text-[1.05rem]"
-        >
-          Prospecting, CRM, voice qualification, Docket, and RegLens. Scores you can explain. Staff
-          review before anything counts as done.
-        </p>
-        <div data-hero-anim className="mt-8 flex flex-wrap items-center gap-5">
-          <MarketingPrimaryButton href="/access">Access product</MarketingPrimaryButton>
-          <Link href="#product" className="mkt-text-link">
-            See product screens
-          </Link>
+        <div data-hero-anim className="md:col-span-5">
+          <MarketingProductShot
+            src="/marketing/ops-compliance-desk.webp"
+            alt="A compliance desk with files, a laptop, and a truck outside the window"
+            aspectClassName="aspect-[4/3]"
+            objectFit="cover"
+            sizes="(max-width: 768px) 100vw, 28rem"
+            priority
+          />
         </div>
       </div>
 
-      <div data-hero-anim className="relative mx-auto mt-12 max-w-[88rem] px-4 pb-10 sm:px-6 md:mt-16 md:px-8">
+      <div data-hero-anim className="mx-auto mt-12 max-w-[88rem] px-4 pb-12 sm:px-6 md:mt-16 md:px-8">
         <MarketingProductShot
-          src="/marketing/product-shots/02-opportunities.png"
-          alt="SkyOS Overview needs-attention board"
-          pathLabel="skyos.app / overview"
-          aspectClassName="aspect-[16/9] md:aspect-[21/10]"
+          src="/marketing/product-shots/17-overview-v3.png"
+          alt="SkyOS Overview listing inbound leads and cases that need staff attention today"
+          title="Overview"
+          caption="What staff open: inbound work on the left, open cases on the right."
           priority
-          className="rounded-b-[10px] shadow-[0_24px_60px_-28px_rgba(28,25,23,0.35)]"
+          className="shadow-[0_18px_48px_-24px_rgba(28,25,23,0.28)]"
         />
       </div>
     </section>
