@@ -368,4 +368,6 @@ export interface DemoState {
   cases: ServiceCase[];
   documents: CaseDocument[];
   tasks: CaseTask[];
+  /** Staff decisions on the notice-to-task run, keyed by regulation id. */
+  impactRuns?: Record<string, import("@/lib/regulations/impact-run").StoredImpactRun>;
 }

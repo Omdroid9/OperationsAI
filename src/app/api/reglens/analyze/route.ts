@@ -1,3 +1,4 @@
+import { requireStaffSession } from "@/lib/auth/require-session";
 import { LIVE_MODE_SETUP, readDemoModeFromRequest } from "@/lib/mode/demo-mode";
 import { GEMINI_REGULATION_FALLBACK, extractJsonFromParts } from "@/lib/providers/gemini";
 import { regulationAnalysisSchema } from "@/lib/validation/schemas";
@@ -17,6 +18,9 @@ const REGULATION_SCHEMA_HINT = `{
 }`;
 
 export async function POST(request: Request) {
+  const session = await requireStaffSession();
+  if (!session.ok) return session.response;
+
   const demoMode = readDemoModeFromRequest(request);
   const body = (await request.json()) as { text?: string };
   const text = (body.text ?? "").trim();

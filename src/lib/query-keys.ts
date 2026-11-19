@@ -15,6 +15,10 @@ export const queryKeys = {
   regulations: ["regulations"] as const,
   regulation: (id: string) => ["regulations", id] as const,
   matches: (regulationId: string) => ["matches", regulationId] as const,
+  similarNotices: (regulationId: string) => ["regulations", regulationId, "similar"] as const,
+  impactRun: (regulationId: string) => ["regulations", regulationId, "impact-run"] as const,
+  briefing: (regulationId: string, noticeIds: string[]) =>
+    ["regulations", regulationId, "briefing", noticeIds.join(",")] as const,
   allMatches: ["matches"] as const,
   attention: ["attention"] as const,
 };

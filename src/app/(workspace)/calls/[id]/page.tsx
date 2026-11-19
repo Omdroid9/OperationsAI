@@ -1,6 +1,7 @@
 "use client";
 
 import { CallConclusionFields } from "@/components/calls/call-conclusion";
+import { CallReviewPanel } from "@/components/calls/call-review-panel";
 import { EmptyState, ErrorState, TableSkeleton } from "@/components/shared/empty-state";
 import { PageBody } from "@/components/shared/page-body";
 import { PageHeader } from "@/components/shared/page-header";
@@ -8,6 +9,7 @@ import { ProfileKindBadge } from "@/components/shared/profile-kind";
 import { StatusBadge } from "@/components/shared/status-badge";
 import { Button } from "@/components/ui/button";
 import { useCall, useCarrier, useOpportunity, useOpportunityMutations } from "@/hooks/use-skyos";
+import { reviewCall } from "@/lib/qualify/call-review";
 import { isLikelyUrl } from "@/lib/qualify/display";
 import { getProfileKind } from "@/lib/profile";
 import Link from "next/link";
@@ -42,6 +44,7 @@ export default function CallDetailPage() {
     return Boolean(text.trim()) && !isLikelyUrl(text);
   });
   const [showTech, setShowTech] = useState(false);
+  const [showOriginal, setShowOriginal] = useState(false);
 
   if (callQuery.isLoading) {
     return (
@@ -72,6 +75,11 @@ export default function CallDetailPage() {
   const transcriptText = call.originalTranscript?.trim() ?? "";
   const hasInlineTranscript = Boolean(transcriptText) && !isLikelyUrl(transcriptText);
   const transcriptUrl = call.transcriptUrl ?? (isLikelyUrl(transcriptText) ? transcriptText : null);
+  const review = reviewCall({
+    qualification,
+    transcript: hasInlineTranscript ? transcriptText : "",
+    carrier: carrierQuery.data ?? null,
+  });
 
   return (
     <PageBody>
@@ -143,6 +151,8 @@ export default function CallDetailPage() {
         ) : null}
       </section>
 
+      {call.status !== "failed" ? <CallReviewPanel review={review} /> : null}
+
       <section className="mt-8 max-w-2xl">
         <h2 className="text-sm font-medium">Transcript</h2>
         {hasInlineTranscript ? (
@@ -156,9 +166,25 @@ export default function CallDetailPage() {
               {showTranscript ? "Hide transcript" : "Show transcript"}
             </button>
             {showTranscript ? (
-              <pre className="mt-3 whitespace-pre-wrap border border-border bg-card px-4 py-3 font-sans text-sm leading-6 text-foreground">
-                {transcriptText}
-              </pre>
+              <>
+                <pre className="mt-3 whitespace-pre-wrap border border-border bg-card px-4 py-3 font-sans text-sm leading-6 text-foreground">
+                  {showOriginal ? transcriptText : review.redaction.text}
+                </pre>
+                {review.redaction.total > 0 ? (
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    {showOriginal
+                      ? "Showing personal details."
+                      : `${review.redaction.total} personal ${review.redaction.total === 1 ? "detail" : "details"} hidden.`}{" "}
+                    <button
+                      type="button"
+                      className="underline underline-offset-2"
+                      onClick={() => setShowOriginal((value) => !value)}
+                    >
+                      {showOriginal ? "Hide" : "Show original"}
+                    </button>
+                  </p>
+                ) : null}
+              </>
             ) : null}
           </>
         ) : transcriptUrl ? (

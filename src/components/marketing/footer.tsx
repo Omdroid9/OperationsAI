@@ -2,10 +2,10 @@ import { MarketingContactLinks } from "@/components/marketing/marketing-contact"
 import Link from "next/link";
 
 const LINKS = [
-  { href: "/#product", label: "Product" },
-  { href: "/#voice", label: "Voice" },
-  { href: "/#under-the-hood", label: "Under the hood" },
-  { href: "/#modules", label: "Features" },
+  { href: "/#loop", label: "How it works" },
+  { href: "/#safeguards", label: "Safeguards" },
+  { href: "/#evidence", label: "Test results" },
+  { href: "/#use-case", label: "Who it’s for" },
   { href: "/#faq", label: "FAQ" },
   { href: "/access", label: "Access product" },
 ];
@@ -20,8 +20,8 @@ export function MarketingFooter() {
               SkyOS
             </p>
             <p className="mt-4 max-w-sm font-sans text-sm leading-relaxed text-[var(--mkt-on-dark-muted)]">
-              Operations workspace for trucking compliance teams—prospecting, qualification, cases,
-              and monitoring with staff review on important decisions.
+              Staff workspace for a trucking compliance agency. Carriers never log in. Prospecting,
+              qualification, cases, and monitoring with staff review on important decisions.
             </p>
             <MarketingContactLinks className="mt-5 [&_a]:text-white [&_a:hover]:opacity-80" />
           </div>

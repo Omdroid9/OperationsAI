@@ -1,7 +1,24 @@
+import { timingSafeEqual } from "node:crypto";
 import { recordLiveCall } from "@/lib/providers/vapi";
 import { NextResponse } from "next/server";
 
+/** Vapi sends the server secret configured on the assistant as `x-vapi-secret`. */
+function secretMatches(provided: string | null, expected: string): boolean {
+  if (!provided) return false;
+  const a = Buffer.from(provided);
+  const b = Buffer.from(expected);
+  return a.length === b.length && timingSafeEqual(a, b);
+}
+
 export async function POST(request: Request) {
+  const expected = process.env.VAPI_WEBHOOK_SECRET?.trim();
+  if (!expected) {
+    return NextResponse.json({ error: "Vapi webhook secret is not configured." }, { status: 503 });
+  }
+  if (!secretMatches(request.headers.get("x-vapi-secret"), expected)) {
+    return NextResponse.json({ error: "Unauthorized webhook." }, { status: 401 });
+  }
+
   const payload = (await request.json()) as {
     message?: {
       type?: string;

@@ -1,3 +1,4 @@
+import { requireStaffSession } from "@/lib/auth/require-session";
 import { LIVE_MODE_SETUP, readDemoModeFromRequest } from "@/lib/mode/demo-mode";
 import { extractJsonFromParts } from "@/lib/providers/gemini";
 import { REGULATORY_INBOX } from "@/lib/regulations/inbox";
@@ -5,6 +6,9 @@ import { regulationAnalysisSchema } from "@/lib/validation/schemas";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
+  const session = await requireStaffSession();
+  if (!session.ok) return session.response;
+
   const demoMode = readDemoModeFromRequest(request);
   if (!demoMode) {
     return NextResponse.json(
@@ -66,6 +70,9 @@ ${notice.sourceText.slice(0, 12000)}`,
 }
 
 export async function GET(request: Request) {
+  const session = await requireStaffSession();
+  if (!session.ok) return session.response;
+
   const demoMode = readDemoModeFromRequest(request);
   if (!demoMode) {
     return NextResponse.json({ count: 0 });

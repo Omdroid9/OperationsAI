@@ -13,14 +13,23 @@ const DATE_SHORT = new Intl.DateTimeFormat("en-US", {
   timeZone: "America/Los_Angeles",
 });
 
+/**
+ * A date-only string ("2026-08-01") is a calendar date, not an instant. Pinning it
+ * to noon Pacific keeps the displayed day the same as the written one; parsing it
+ * as UTC midnight showed the day before.
+ */
+function parseDate(iso: string): Date {
+  return new Date(/^\d{4}-\d{2}-\d{2}$/.test(iso) ? `${iso}T12:00:00-08:00` : iso);
+}
+
 export function formatDate(iso: string | null | undefined): string {
   if (!iso) return "—";
-  return DATE_FORMAT.format(new Date(iso));
+  return DATE_FORMAT.format(parseDate(iso));
 }
 
 export function formatDateShort(iso: string | null | undefined): string {
   if (!iso) return "—";
-  return DATE_SHORT.format(new Date(iso));
+  return DATE_SHORT.format(parseDate(iso));
 }
 
 export function formatUsdot(usdot: string): string {

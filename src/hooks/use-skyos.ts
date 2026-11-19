@@ -1,5 +1,6 @@
 "use client";
 
+import type { RegulationRagResult } from "@/lib/regulations/rag/types";
 import { analyzeRegulationLive, fetchProviderStatus } from "@/lib/live/client";
 import { queryKeys } from "@/lib/query-keys";
 import {
@@ -143,6 +144,34 @@ export function useMatches(regulationId: string) {
     queryKey: queryKeys.matches(regulationId),
     queryFn: () => getRegulationRepository().getMatches(regulationId),
     enabled: Boolean(regulationId),
+  });
+}
+
+export function useSimilarNotices(regulationId: string) {
+  return useQuery({
+    queryKey: queryKeys.similarNotices(regulationId),
+    queryFn: () => getRegulationRepository().getSimilarNotices(regulationId),
+    enabled: Boolean(regulationId),
+  });
+}
+
+export function useImpactRun(regulationId: string) {
+  return useQuery({
+    queryKey: queryKeys.impactRun(regulationId),
+    queryFn: () => getRegulationRepository().getImpactRun(regulationId),
+    enabled: Boolean(regulationId),
+  });
+}
+
+export function useBriefing(regulationId: string, similar: RegulationRagResult | undefined) {
+  return useQuery({
+    queryKey: queryKeys.briefing(
+      regulationId,
+      (similar?.similarNotices ?? []).map((notice) => notice.chunk.id),
+    ),
+    queryFn: () => getRegulationRepository().getBriefing(regulationId, similar!),
+    enabled: Boolean(regulationId) && similar != null,
+    staleTime: 5 * 60_000,
   });
 }
 

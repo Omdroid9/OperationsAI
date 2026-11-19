@@ -13,7 +13,15 @@
     "astryx": "node node_modules/@astryxdesign/cli/clients/cli/bin/astryx.mjs",
     "check:deploy-env": "node scripts/check-deploy-env.mjs",
     "deploy:env": "node scripts/vercel-push-env.mjs",
-    "deploy:prod": "npx vercel deploy --prod --yes"
+    "deploy:prod": "npx vercel deploy --prod --yes",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "eval:rag": "vitest run --config vitest.eval.config.ts",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run eval:rag",
+    "eval:rag:refresh": "EVAL_REFRESH_EMBEDDINGS=1 node --env-file-if-exists=.env.local node_modules/vitest/vitest.mjs run --config vitest.eval.config.ts",
+    "eval:briefing:refresh": "EVAL_REFRESH_BRIEFING=1 node --env-file-if-exists=.env.local node_modules/vitest/vitest.mjs run --config vitest.eval.config.ts src/lib/regulations/eval",
+    "corpus:refresh": "node scripts/refresh-fr-corpus.mjs"
   },
   "dependencies": {
     "@astryxdesign/core": "^0.3.0",
@@ -50,7 +58,8 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.7"
   },
   "optionalDependencies": {
     "@napi-rs/canvas-darwin-arm64": "^1.0.6"

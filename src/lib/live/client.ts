@@ -1,7 +1,9 @@
 import { demoModeHeaders, getDemoModeClient } from "@/lib/mode/demo-mode";
 import type { ProviderStatus } from "@/lib/providers/status";
 import type { NormalizedFmcsaCarrier } from "@/lib/providers/types";
-import type { QualificationResult } from "@/types";
+import type { Briefing, BriefingSource } from "@/lib/regulations/briefing";
+import type { RegulationRagResult } from "@/lib/regulations/rag/types";
+import type { QualificationResult, Regulation, RegulationMatch } from "@/types";
 
 function withDemoMode(init?: RequestInit): RequestInit {
   return {
@@ -238,3 +240,46 @@ export const PROVIDER_LABELS: Record<keyof ProviderStatus, string> = {
   supabase: "Supabase",
   dograh: "Dograh",
 };
+
+/** Embedding-backed similar notices. Throws so the caller can use local lexical retrieval. */
+export async function fetchSimilarNoticesLive(input: {
+  regulation: Regulation;
+  matches: RegulationMatch[];
+  workspaceRegulations: Regulation[];
+}): Promise<RegulationRagResult> {
+  const response = await fetch(
+    "/api/reglens/similar",
+    withDemoMode({
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...input,
+        // Most recent notices only; the route caps the list.
+        workspaceRegulations: input.workspaceRegulations.slice(0, 50),
+      }),
+    }),
+  );
+  const payload = (await response.json()) as { result?: RegulationRagResult; error?: string };
+  if (!response.ok || !payload.result) {
+    throw new Error(payload.error ?? "Similar notice retrieval unavailable.");
+  }
+  return payload.result;
+}
+
+/** Model-drafted, validated briefing. Null when no usable draft came back. */
+export async function fetchBriefingLive(input: {
+  regulationId: string;
+  sources: BriefingSource[];
+}): Promise<Briefing | null> {
+  const response = await fetch(
+    "/api/reglens/briefing",
+    withDemoMode({
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(input),
+    }),
+  );
+  if (!response.ok) return null;
+  const payload = (await response.json()) as { briefing?: Briefing | null };
+  return payload.briefing ?? null;
+}

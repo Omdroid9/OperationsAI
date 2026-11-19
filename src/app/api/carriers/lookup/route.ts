@@ -1,9 +1,13 @@
+import { requireStaffSession } from "@/lib/auth/require-session";
 import { readDemoModeFromRequest } from "@/lib/mode/demo-mode";
 import { getCarrierDataProvider } from "@/lib/providers";
 import { persistCarrierLookup } from "@/lib/supabase/persist";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
+  const session = await requireStaffSession();
+  if (!session.ok) return session.response;
+
   const demoMode = readDemoModeFromRequest(request);
   const body = (await request.json()) as { usdot?: string };
   const usdot = (body.usdot ?? "").replace(/\D/g, "");

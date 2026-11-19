@@ -1,0 +1,138 @@
+import type { RegulationChunk } from "@/lib/regulations/rag/types";
+
+/**
+ * Seeded prior-notice index for RegLens retrieval.
+ * Illustrative FMCSA-shaped notices for demo grounding — not official publications.
+ * Demo mode retrieves against this corpus without live embedding providers.
+ */
+export const SEEDED_REGULATION_CORPUS: RegulationChunk[] = [
+  {
+    id: "corpus_new-entrant-packet",
+    title: "New Entrant Safety Assurance — Supplemental Recordkeeping",
+    agency: "FMCSA",
+    category: "New Entrant",
+    documentNumber: "FMCSA-2026-0144",
+    publishedDate: "2026-08-01",
+    affectedSegment: "interstate New Entrant carriers",
+    requiredAction:
+      "Review New Entrant packet completeness and ELD recordkeeping before October 15, 2026",
+    summary:
+      "Illustrative notice directing interstate New Entrants to complete an updated safety assurance packet and confirm hours-of-service recordkeeping before the stated deadline.",
+    body: `Interstate New Entrant motor carriers must complete an updated safety assurance packet, including driver qualification file completeness and hours-of-service recordkeeping using an approved electronic logging device where required. Carriers operating in interstate commerce that are currently in the New Entrant program should review device compatibility and file completeness before the October 15, 2026 deadline.`,
+    tags: ["new entrant", "interstate", "eld", "recordkeeping", "safety assurance"],
+    source: "seeded_index",
+    sourceUrl: null,
+  },
+  {
+    id: "corpus_eld-mandate-refresh",
+    title: "Electronic Logging Device Mandate — Guidance Refresh",
+    agency: "FMCSA",
+    category: "Hours of Service",
+    documentNumber: "FMCSA-2025-0912",
+    publishedDate: "2025-11-18",
+    affectedSegment: "interstate carriers subject to ELD requirements",
+    requiredAction: "Confirm ELD vendor compatibility and driver HOS file retention",
+    summary:
+      "Guidance refresh on electronic logging device use for interstate carriers, including device transfer and supporting document retention.",
+    body: `This guidance clarifies electronic logging device (ELD) requirements for interstate motor carriers. Carriers should confirm vendor compatibility, driver login procedures, and supporting document retention for hours-of-service audits. Small fleets remain subject to the same device rules when operating in interstate commerce.`,
+    tags: ["eld", "hours of service", "interstate", "small fleet", "recordkeeping"],
+    source: "seeded_index",
+    sourceUrl: null,
+  },
+  {
+    id: "corpus_ca-bit-inspection",
+    title: "California BIT Inspection Alignment Notice",
+    agency: "FMCSA",
+    category: "State Programs",
+    documentNumber: "FMCSA-2026-0033",
+    publishedDate: "2026-03-04",
+    affectedSegment: "California-based carriers subject to BIT",
+    requiredAction: "Review California BIT inspection calendars and maintenance file readiness",
+    summary:
+      "Notice highlighting coordination between federal safety programs and California Biennial Inspection of Terminals expectations for carriers based in California.",
+    body: `California carriers subject to Biennial Inspection of Terminals (BIT) should align maintenance files and inspection calendars with federal safety assurance expectations. Carriers operating primarily in California intrastate commerce may still face overlapping documentation requirements when also holding interstate authority.`,
+    tags: ["california", "bit", "inspection", "maintenance", "state programs"],
+    source: "seeded_index",
+    sourceUrl: null,
+  },
+  {
+    id: "corpus_ifta-irp-renewal",
+    title: "IFTA / IRP Credential Renewal Coordination",
+    agency: "FMCSA",
+    category: "Credentials",
+    documentNumber: "FMCSA-2025-1201",
+    publishedDate: "2025-12-01",
+    affectedSegment: "interstate carriers with IFTA or IRP credentials",
+    requiredAction: "Confirm IFTA and IRP renewal dates and supporting mileage records",
+    summary:
+      "Coordination notice reminding interstate carriers to keep IFTA and IRP credentials current with supporting distance and fuel records.",
+    body: `Interstate carriers holding International Fuel Tax Agreement (IFTA) or International Registration Plan (IRP) credentials should confirm renewal windows and retain distance and fuel records. Lapses can interrupt authority use even when USDOT registration remains active.`,
+    tags: ["ifta", "irp", "renewal", "interstate", "credentials"],
+    source: "seeded_index",
+    sourceUrl: null,
+  },
+  {
+    id: "corpus_drug-alcohol-clearinghouse",
+    title: "Drug and Alcohol Clearinghouse Query Reminder",
+    agency: "FMCSA",
+    category: "Drug & Alcohol",
+    documentNumber: "FMCSA-2026-0208",
+    publishedDate: "2026-02-08",
+    affectedSegment: "employers of CDL drivers subject to Clearinghouse queries",
+    requiredAction: "Complete required Clearinghouse queries before driver dispatch",
+    summary:
+      "Reminder that employers must run required Drug and Alcohol Clearinghouse queries for CDL drivers before allowing safety-sensitive functions.",
+    body: `Employers of commercial driver's license (CDL) holders must complete required Drug and Alcohol Clearinghouse queries before permitting safety-sensitive functions. New Entrant carriers should include Clearinghouse query procedures in driver qualification file reviews.`,
+    tags: ["clearinghouse", "cdl", "drug and alcohol", "new entrant", "driver qualification"],
+    source: "seeded_index",
+    sourceUrl: null,
+  },
+  {
+    id: "corpus_ucs-filing",
+    title: "UCS Financial Responsibility Filing Update",
+    agency: "FMCSA",
+    category: "Authority",
+    documentNumber: "FMCSA-2025-0788",
+    publishedDate: "2025-09-22",
+    affectedSegment: "for-hire interstate carriers filing financial responsibility",
+    requiredAction: "Verify BMC-91X / UCS filings remain active for for-hire authority",
+    summary:
+      "Update on unified carrier system financial responsibility filings for for-hire interstate carriers.",
+    body: `For-hire interstate motor carriers must keep financial responsibility filings current in the Unified Carrier System. Lapsed BMC-91X or equivalent filings can place authority out of service even when operations otherwise continue.`,
+    tags: ["authority", "financial responsibility", "for-hire", "interstate", "ucs"],
+    source: "seeded_index",
+    sourceUrl: null,
+  },
+  {
+    id: "corpus_small-fleet-hos",
+    title: "Small Fleet Hours-of-Service Recordkeeping Clarification",
+    agency: "FMCSA",
+    category: "Hours of Service",
+    documentNumber: "FMCSA-2026-0055",
+    publishedDate: "2026-01-20",
+    affectedSegment: "small fleets of 1–10 power units in interstate commerce",
+    requiredAction: "Confirm HOS recordkeeping method and supporting documents for small fleets",
+    summary:
+      "Clarifies that small interstate fleets remain subject to hours-of-service recordkeeping and supporting document rules.",
+    body: `Small fleets operating 1–10 power units in interstate commerce remain subject to hours-of-service recordkeeping. Carriers should confirm whether an electronic logging device is required and retain supporting documents for roadside and audit review.`,
+    tags: ["small fleet", "hours of service", "eld", "interstate", "recordkeeping"],
+    source: "seeded_index",
+    sourceUrl: null,
+  },
+  {
+    id: "corpus_hazmat-security",
+    title: "Hazardous Materials Security Plan Reminder",
+    agency: "FMCSA",
+    category: "Hazmat",
+    documentNumber: "PHMSA-2025-0440",
+    publishedDate: "2025-10-09",
+    affectedSegment: "carriers transporting placarded hazardous materials",
+    requiredAction: "Review hazmat security plan and employee training currency",
+    summary:
+      "Reminder for carriers transporting placarded hazardous materials to keep security plans and training current.",
+    body: `Carriers transporting placarded hazardous materials must maintain a written security plan and ensure employee training remains current. Interstate hazmat operations may face joint FMCSA and PHMSA review during audits.`,
+    tags: ["hazmat", "security plan", "training", "interstate"],
+    source: "seeded_index",
+    sourceUrl: null,
+  },
+];

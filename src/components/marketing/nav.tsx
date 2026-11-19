@@ -7,9 +7,9 @@ import { useEffect, useState } from "react";
 
 /** In-page anchors only — public marketing is a single product page. */
 const LINKS = [
-  { href: "/#product", label: "Product" },
-  { href: "/#voice", label: "Voice" },
-  { href: "/#modules", label: "Features" },
+  { href: "/#loop", label: "How it works" },
+  { href: "/#safeguards", label: "Safeguards" },
+  { href: "/#evidence", label: "Test results" },
   { href: "/#faq", label: "FAQ" },
 ];
 
@@ -44,7 +44,7 @@ export function MarketingNav() {
             SkyOS
           </span>
           <span className="block font-sans text-[0.7rem] text-[var(--mkt-ink-faint)]">
-            Operations workspace
+            Compliance operations
           </span>
         </Link>
 

@@ -1,5 +1,8 @@
 "use client";
 
+import { BriefingPanel } from "@/components/reglens/briefing-panel";
+import { ImpactRunPanel } from "@/components/reglens/impact-run-panel";
+import { SimilarNoticesPanel } from "@/components/reglens/similar-notices-panel";
 import { CarrierName } from "@/components/shared/profile-kind";
 import { EmptyState, ErrorState, TableSkeleton } from "@/components/shared/empty-state";
 import { NextStepPanel } from "@/components/shared/next-step";
@@ -31,11 +34,24 @@ import {
   useMatches,
   useRegulation,
   useRegulationMutations,
+  useBriefing,
+  useImpactRun,
+  useSimilarNotices,
 } from "@/hooks/use-skyos";
 import { staffDisplayName } from "@/data/staff";
 import { formatDate, formatPercent } from "@/lib/format";
 import { MATCH_LABEL } from "@/lib/labels";
 import { getProfileKind } from "@/lib/profile";
+import {
+  approveImpactRun,
+  decideProposal,
+  describeImpactRun,
+  markNoticesReviewed,
+  recordTasksCreated,
+  type ImpactDecision,
+  type ImpactProposal,
+  type StoredImpactRun,
+} from "@/lib/regulations/impact-run";
 import { getRegulationRepository } from "@/lib/repositories";
 import type { Carrier, RegulationMatch, ServiceCase } from "@/types";
 import Link from "next/link";
@@ -56,10 +72,18 @@ function CustomerMatchList({
   matches,
   carrierMap,
   caseByCarrier,
+  supportingByCarrier,
+  proposals,
+  locked,
+  onDecide,
 }: {
   matches: RegulationMatch[];
   carrierMap: Map<string, Carrier>;
   caseByCarrier: Map<string, string>;
+  supportingByCarrier: Map<string, string[]>;
+  proposals: Map<string, ImpactProposal>;
+  locked: boolean;
+  onDecide: (carrierId: string, decision: ImpactDecision) => void;
 }) {
   if (matches.length === 0) {
     return (
@@ -77,13 +101,15 @@ function CustomerMatchList({
     <section className="mt-8">
       <h2 className="text-sm font-medium">Current customers</h2>
       <p className="mt-1 text-sm text-muted-foreground">
-        What may need to change for carriers you already serve. Flagging adds a task on their Docket
-        case.
+        What may need to change for carriers you already serve. Include a customer to add a review
+        task on their Docket case when you approve. Supporting notices are retrieved citations, not
+        proof.
       </p>
       <ul className="mt-3 max-w-2xl divide-y divide-border border-y border-border">
         {matches.map((match) => {
           const carrier = carrierMap.get(match.carrierId);
           const caseId = caseByCarrier.get(match.carrierId);
+          const supporting = supportingByCarrier.get(match.carrierId) ?? [];
           return (
             <li key={match.carrierId} className="py-3 text-sm">
               <div className="flex items-start justify-between gap-3">
@@ -93,6 +119,11 @@ function CustomerMatchList({
                   <p className="mt-2 text-sm text-foreground">
                     Recommended change: {match.requiredChange}
                   </p>
+                  {supporting.length > 0 ? (
+                    <p className="mt-2 text-xs text-muted-foreground">
+                      Supporting notices: {supporting.join("; ")}
+                    </p>
+                  ) : null}
                 </div>
                 <div className="flex shrink-0 flex-col items-end gap-1.5">
                   <StatusBadge
@@ -103,9 +134,35 @@ function CustomerMatchList({
                     <Link href={`/docket/${caseId}`} className="text-xs hover:underline">
                       Open case
                     </Link>
-                  ) : null}
+                  ) : (
+                    <span className="text-xs text-muted-foreground">No Docket case</span>
+                  )}
                 </div>
               </div>
+              {proposals.has(match.carrierId) ? (
+                <div className="mt-2 flex items-center gap-2">
+                  {(["include", "exclude"] as const).map((decision) => {
+                    const selected = proposals.get(match.carrierId)?.decision === decision;
+                    return (
+                      <Button
+                        key={decision}
+                        size="sm"
+                        variant={selected ? "secondary" : "outline"}
+                        aria-pressed={selected}
+                        disabled={locked}
+                        onClick={() => onDecide(match.carrierId, decision)}
+                      >
+                        {decision === "include" ? "Include" : "Leave out"}
+                      </Button>
+                    );
+                  })}
+                  {proposals.get(match.carrierId)?.decision === "include" && !caseId ? (
+                    <span className="text-xs text-muted-foreground">
+                      Included, but there is no case to add a task to.
+                    </span>
+                  ) : null}
+                </div>
+              ) : null}
             </li>
           );
         })}
@@ -118,6 +175,9 @@ export default function RegLensDetailPage() {
   const params = useParams<{ id: string }>();
   const regulationQuery = useRegulation(params.id);
   const matchesQuery = useMatches(params.id);
+  const similarQuery = useSimilarNotices(params.id);
+  const briefingQuery = useBriefing(params.id, similarQuery.data);
+  const impactRunQuery = useImpactRun(params.id);
   const carriers = useCarriers();
   const cases = useCases();
   const invalidate = useInvalidateAll();
@@ -152,7 +212,46 @@ export default function RegLensDetailPage() {
   const carrierMap = new Map((carriers.data ?? []).map((item) => [item.id, item]));
   const caseByCarrier = new Map((cases.data ?? []).map((item) => [item.carrierId, item.id]));
   const customerMatches = (matchesQuery.data ?? []).filter((item) => item.audience === "customer");
+  const supportingByCarrier = new Map(
+    (similarQuery.data?.matchGrounding ?? []).map((item) => [
+      item.carrierId,
+      item.supportingTitles,
+    ]),
+  );
   const openCases = (cases.data ?? []).filter((item) => item.status !== "COMPLETE");
+
+  const impact = describeImpactRun(impactRunQuery.data, {
+    regulation,
+    similar: similarQuery.data,
+    customerMatches,
+    briefing: briefingQuery.data,
+    caseByCarrier,
+  });
+  const similarReviewed = impact.stored.noticesReviewed;
+  const approved = impact.status === "approved";
+  const saveRun = async (run: StoredImpactRun) => {
+    await getRegulationRepository().saveImpactRun(run);
+    invalidate();
+  };
+  const markReviewed = () => {
+    if (!similarReviewed && !approved) void saveRun(markNoticesReviewed(impact.stored));
+  };
+  const approve = async () => {
+    try {
+      const { run, carrierIds } = approveImpactRun(impact, "You", new Date().toISOString());
+      const created = await getRegulationRepository().createImpactTasks(
+        regulation.id,
+        carrierIds,
+        "You",
+      );
+      await saveRun(recordTasksCreated(run, created));
+      toast.success(
+        created === 1 ? "1 case task created" : `${created} case tasks created`,
+      );
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Could not approve.");
+    }
+  };
 
   return (
     <PageBody>
@@ -176,17 +275,6 @@ export default function RegLensDetailPage() {
             <Button variant="outline" onClick={() => setRelevantOpen(true)}>
               Mark relevant to case
             </Button>
-            <Button
-              variant="outline"
-              disabled={regulation.customersFlagged}
-              onClick={async () => {
-                const count = await getRegulationRepository().flagCustomers(regulation.id);
-                invalidate();
-                toast.success(`${count} current customers flagged with recommended changes`);
-              }}
-            >
-              Flag current customers
-            </Button>
           </div>
         }
       />
@@ -194,13 +282,29 @@ export default function RegLensDetailPage() {
       <div className="mt-5">
         <NextStepPanel
           title={
-            customerMatches.length > 0
-              ? "Review current customers, then flag or mark a case"
-              : "No current customers matched — mark a case if review is still needed"
+            approved
+              ? `Approved — ${impact.stored.tasksCreated ?? 0} case ${impact.stored.tasksCreated === 1 ? "task" : "tasks"} created`
+              : impact.status === "ready_to_approve"
+                ? impact.includedWithCase.length > 0
+                  ? `Approve to create ${impact.includedWithCase.length} case ${impact.includedWithCase.length === 1 ? "task" : "tasks"}`
+                  : "Approve to close this notice with no case tasks"
+                : (impact.blockers[0] ?? "Review this notice")
           }
-          body="Matching is a suggested overlap with customer profiles, not a compliance finding. Mark relevant to case creates a Docket task for the owner."
+          body="Matching is a suggested overlap with customer profiles and retrieved notices, not a compliance finding. Approval adds a review task to each included customer's Docket case. Nothing is sent to carriers."
           action={
-            <Button onClick={() => setRelevantOpen(true)}>Mark relevant to case</Button>
+            approved ? (
+              <Button variant="outline" onClick={() => setRelevantOpen(true)}>
+                Mark relevant to another case
+              </Button>
+            ) : !similarReviewed ? (
+              <Button onClick={markReviewed} disabled={!similarQuery.data}>
+                Mark similar notices reviewed
+              </Button>
+            ) : (
+              <Button onClick={approve} disabled={impact.status !== "ready_to_approve"}>
+                Approve
+              </Button>
+            )
           }
         />
       </div>
@@ -252,6 +356,18 @@ export default function RegLensDetailPage() {
       </dl>
       <p className="mt-4 max-w-2xl text-sm text-muted-foreground">{regulation.sourceSummary}</p>
 
+      <SimilarNoticesPanel
+        result={similarQuery.data}
+        loading={similarQuery.isLoading}
+        reviewed={similarReviewed}
+        onReviewed={markReviewed}
+      />
+
+      <BriefingPanel
+        briefing={briefingQuery.data ?? undefined}
+        loading={similarQuery.isLoading || briefingQuery.isLoading}
+      />
+
       <p className="mt-6 text-sm">
         Current customers matched{" "}
         <span className="tabular font-medium">{customerMatches.length}</span>
@@ -261,7 +377,15 @@ export default function RegLensDetailPage() {
         matches={customerMatches}
         carrierMap={carrierMap}
         caseByCarrier={caseByCarrier}
+        supportingByCarrier={supportingByCarrier}
+        proposals={new Map(impact.proposals.map((proposal) => [proposal.carrierId, proposal]))}
+        locked={approved}
+        onDecide={(carrierId, decision) =>
+          void saveRun(decideProposal(impact.stored, carrierId, decision))
+        }
       />
+
+      <ImpactRunPanel view={impact} />
 
       <Dialog open={relevantOpen} onOpenChange={setRelevantOpen}>
         <DialogContent className="sm:max-w-md">

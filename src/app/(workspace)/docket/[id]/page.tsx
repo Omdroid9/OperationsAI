@@ -1,5 +1,6 @@
 "use client";
 
+import { SimilarDocumentsPanel } from "@/components/docket/similar-documents-panel";
 import { EmptyState, ErrorState, TableSkeleton } from "@/components/shared/empty-state";
 import { NextStepPanel } from "@/components/shared/next-step";
 import { PageBody } from "@/components/shared/page-body";
@@ -17,6 +18,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { NEW_ENTRANT_CHECKLIST } from "@/lib/docket/case";
+import { retrieveSimilarDocuments } from "@/lib/docket/rag/retrieve";
 import { daysUntilDate, isWithinRenewalWindow, RENEWAL_WINDOW_DAYS } from "@/lib/docket/renewal";
 import { SERVICE_TYPES } from "@/lib/docket/service-types";
 import { buildCaseTimeline } from "@/lib/docket/timeline";
@@ -343,6 +345,7 @@ export default function DocketDetailPage() {
                           <dd className="min-w-0 break-all">{doc.fileName}</dd>
                         </div>
                       </dl>
+                      <SimilarDocumentsPanel result={retrieveSimilarDocuments(doc)} />
                     </div>
                     <div className="flex shrink-0 flex-row gap-2 sm:flex-col">
                       <Button
