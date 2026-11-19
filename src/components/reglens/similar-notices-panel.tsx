@@ -21,12 +21,13 @@ export function SimilarNoticesPanel({
     return (
       <section className="mt-8" aria-busy="true">
         <h2 className="text-sm font-medium">Similar notices</h2>
-        <p className="mt-2 text-sm text-muted-foreground">Running hybrid retrieval…</p>
+        <p className="mt-2 text-sm text-muted-foreground">Finding similar notices…</p>
       </section>
     );
   }
 
   const notices = result?.similarNotices ?? [];
+  const usesEmbeddings = result?.method === "hybrid_bm25_embedding_rrf";
 
   return (
     <section className="mt-8" aria-labelledby="similar-notices-title">
@@ -36,8 +37,10 @@ export function SimilarNoticesPanel({
             Similar notices
           </h2>
           <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-            Hybrid BM25 + dense lexical retrieval, fused with reciprocal rank fusion. Suggests
-            possible relevance — not a compliance finding.
+            {usesEmbeddings
+              ? "Ranked by embedding similarity and shared terms."
+              : "Ranked by shared terms."}{" "}
+            Suggests possible relevance — not a compliance finding.
           </p>
         </div>
         <StatusBadge
@@ -48,8 +51,7 @@ export function SimilarNoticesPanel({
 
       {notices.length === 0 ? (
         <p className="mt-3 text-sm text-muted-foreground">
-          No similar notices passed overlap and citation checks. Profile matching still stands on
-          its own.
+          No similar notices found. Profile matching still stands on its own.
         </p>
       ) : (
         <ul className="mt-4 max-w-2xl divide-y divide-border border-y border-border">
@@ -57,7 +59,20 @@ export function SimilarNoticesPanel({
             <li key={item.chunk.id} className="py-4">
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <p className="text-sm font-medium text-foreground">{item.chunk.title}</p>
+                  <p className="text-sm font-medium text-foreground">
+                    {item.chunk.sourceUrl ? (
+                      <a
+                        href={item.chunk.sourceUrl}
+                        className="hover:underline"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {item.chunk.title}
+                      </a>
+                    ) : (
+                      item.chunk.title
+                    )}
+                  </p>
                   <p className="mt-1 text-xs text-muted-foreground">
                     {item.chunk.agency}
                     <span className="mx-1.5 text-border">·</span>
@@ -70,13 +85,14 @@ export function SimilarNoticesPanel({
                     ) : null}
                     <span className="mx-1.5 text-border">·</span>
                     <span className="font-mono text-[10px] uppercase tracking-[0.08em]">
-                      Retrieved
+                      {item.chunk.source === "federal_register"
+                        ? "Federal Register"
+                        : item.chunk.source === "workspace"
+                          ? "Workspace"
+                          : "Sample"}
                     </span>
                   </p>
                 </div>
-                <p className="shrink-0 font-mono text-xs tabular text-muted-foreground">
-                  {formatPercent(item.score)}
-                </p>
               </div>
               <p className="mt-2 text-sm text-muted-foreground">{item.chunk.summary}</p>
               <p className="mt-2 text-sm text-foreground">{item.whyRelated}</p>
@@ -86,13 +102,18 @@ export function SimilarNoticesPanel({
                 </p>
               ) : null}
               <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.08em] text-muted-foreground">
-                Dense {formatPercent(item.denseScore)}
+                {item.semanticScore != null ? (
+                  <>
+                    Embedding {item.semanticScore.toFixed(2)}
+                    <span className="mx-1.5 text-border">·</span>
+                  </>
+                ) : null}
+                BM25 {item.bm25Score.toFixed(1)}
                 <span className="mx-1.5 text-border">·</span>
-                BM25 {item.bm25Score.toFixed(2)}
-                <span className="mx-1.5 text-border">·</span>
-                RRF {item.rrfScore.toFixed(4)}
-                <span className="mx-1.5 text-border">·</span>
-                Citation {formatPercent(item.citationFaithfulness)}
+                Citation{" "}
+                {item.citationFaithfulness == null
+                  ? "no terms"
+                  : formatPercent(item.citationFaithfulness)}
               </p>
             </li>
           ))}
@@ -112,7 +133,7 @@ export function SimilarNoticesPanel({
         </Button>
         {!reviewed ? (
           <p className="text-xs text-muted-foreground">
-            Required before flagging current customers.
+            Required before approval.
           </p>
         ) : null}
       </div>

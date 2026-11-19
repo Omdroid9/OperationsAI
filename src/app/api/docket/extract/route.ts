@@ -1,3 +1,4 @@
+import { requireStaffSession } from "@/lib/auth/require-session";
 import { LIVE_MODE_SETUP, readDemoModeFromRequest } from "@/lib/mode/demo-mode";
 import { isInsufficientDocumentExtraction } from "@/lib/docket/extraction";
 import { extractTextFromPdf, parseLabeledDocumentFields } from "@/lib/docket/pdf-text";
@@ -118,6 +119,9 @@ async function buildGeminiParts(
 }
 
 export async function POST(request: Request) {
+  const session = await requireStaffSession();
+  if (!session.ok) return session.response;
+
   const demoMode = readDemoModeFromRequest(request);
   const form = await request.formData();
   const file = form.get("file");

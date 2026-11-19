@@ -1,3 +1,4 @@
+import { requireStaffSession } from "@/lib/auth/require-session";
 import { readDemoModeFromRequest } from "@/lib/mode/demo-mode";
 import { DOGRAH_SETUP, isAllowedDograhTestNumber } from "@/lib/providers/dograh";
 import { getVoiceProvider } from "@/lib/providers";
@@ -5,6 +6,9 @@ import { getProviderStatus } from "@/lib/providers/status";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
+  const session = await requireStaffSession();
+  if (!session.ok) return session.response;
+
   const demoMode = readDemoModeFromRequest(request);
   const body = (await request.json()) as {
     leadId?: string;

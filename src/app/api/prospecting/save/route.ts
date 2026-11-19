@@ -1,3 +1,4 @@
+import { requireStaffSession } from "@/lib/auth/require-session";
 import { demoStore } from "@/lib/demo/store";
 import { findProspectWorkspaceMatch } from "@/lib/prospecting/dedupe";
 import { discoveredProspectSaveSchema } from "@/lib/prospecting/save-schema";
@@ -6,6 +7,9 @@ import { NextResponse } from "next/server";
 
 /** @deprecated Prefer client-side `ingestCensusProspect` via repository — server store is not synced to the browser. */
 export async function POST(request: Request) {
+  const session = await requireStaffSession();
+  if (!session.ok) return session.response;
+
   const body = (await request.json()) as Record<string, unknown>;
   const parsed = discoveredProspectSaveSchema.safeParse(body.prospect);
   if (!parsed.success) {

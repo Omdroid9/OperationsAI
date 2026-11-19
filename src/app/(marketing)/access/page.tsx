@@ -21,7 +21,7 @@ export default function AccessPage() {
         imageAlt="Highway corridor with trucks"
         actions={
           <Link
-            href="/#product"
+            href="/#loop"
             className="border-b border-white/70 pb-0.5 font-sans text-sm text-white hover:border-white"
           >
             See the product

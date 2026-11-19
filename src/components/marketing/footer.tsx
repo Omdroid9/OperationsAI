@@ -2,8 +2,10 @@ import { MarketingContactLinks } from "@/components/marketing/marketing-contact"
 import Link from "next/link";
 
 const LINKS = [
+  { href: "/#loop", label: "How it works" },
+  { href: "/#safeguards", label: "Safeguards" },
+  { href: "/#evidence", label: "Test results" },
   { href: "/#use-case", label: "Who it’s for" },
-  { href: "/#product", label: "Product" },
   { href: "/#faq", label: "FAQ" },
   { href: "/access", label: "Access product" },
 ];

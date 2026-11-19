@@ -1,47 +1,54 @@
 import { tokenizeRegulationText } from "@/lib/regulations/rag/embed";
-import type { RetrievedNotice } from "@/lib/regulations/rag/types";
+import type { RegulationChunk, RetrievedNotice } from "@/lib/regulations/rag/types";
 
 /**
  * Deterministic citation faithfulness for RegLens retrieval claims.
  * Inspired by RAGAS faithfulness (claims supported by retrieved context),
  * but rule-based so demo mode needs no evaluator LLM.
  *
- * A retrieved notice is faithful when every reported overlap term appears
- * in the chunk's searchable text.
+ * A claimed overlap term is supported only when it appears in the notice's
+ * own text (title + body). Category, affected segment, required action,
+ * summary, and tags are labels that staff or a model assigned; a term that
+ * matches only a label is not attested by the source and is reported as
+ * unsupported. Checking against the labels as well would make this metric
+ * pass by construction, because overlap terms are drawn from those fields.
  */
-export function citationFaithfulness(notice: RetrievedNotice): {
-  score: number;
-  supported: string[];
-  unsupported: string[];
-} {
-  const context = tokenizeRegulationText(
-    [
-      notice.chunk.title,
-      notice.chunk.category,
-      notice.chunk.affectedSegment,
-      notice.chunk.requiredAction,
-      notice.chunk.summary,
-      notice.chunk.body,
-      notice.chunk.tags.join(" "),
-    ].join("\n"),
-  );
-  const contextSet = new Set(context);
+export function noticeSourceText(chunk: RegulationChunk): string {
+  return [chunk.title, chunk.body].join("\n");
+}
+
+export function checkTermsAgainstSource(
+  terms: string[],
+  chunk: RegulationChunk,
+): { score: number; supported: string[]; unsupported: string[] } {
+  const contextSet = new Set(tokenizeRegulationText(noticeSourceText(chunk)));
   const supported: string[] = [];
   const unsupported: string[] = [];
 
-  for (const term of notice.overlapTerms) {
+  for (const term of terms) {
     const tokens = tokenizeRegulationText(term);
     const ok = tokens.length > 0 && tokens.every((token) => contextSet.has(token));
     if (ok) supported.push(term);
     else unsupported.push(term);
   }
 
-  const total = notice.overlapTerms.length;
   return {
-    score: total === 0 ? 0 : supported.length / total,
+    score: terms.length === 0 ? 0 : supported.length / terms.length,
     supported,
     unsupported,
   };
+}
+
+/** Faithfulness of the terms a retrieved notice currently displays. */
+export function citationFaithfulness(notice: RetrievedNotice): {
+  score: number;
+  supported: string[];
+  unsupported: string[];
+} {
+  return checkTermsAgainstSource(
+    [...notice.overlapTerms, ...(notice.unattestedTerms ?? [])],
+    notice.chunk,
+  );
 }
 
 export function filterFaithfulNotices(

@@ -1,3 +1,4 @@
+import { requireStaffSession } from "@/lib/auth/require-session";
 import { CA_RADAR_NAME_QUERIES, CA_RADAR_SEED_USDOTS } from "@/data/radar-ca-candidates";
 import { fmcsaCarrierProvider, searchCarriersByName } from "@/lib/providers/fmcsa";
 import { getProviderStatus } from "@/lib/providers/status";
@@ -19,6 +20,9 @@ function radarScore(carrier: NormalizedFmcsaCarrier): number {
 }
 
 export async function POST(request: Request) {
+  const session = await requireStaffSession();
+  if (!session.ok) return session.response;
+
   const status = getProviderStatus();
   if (!status.fmcsa) {
     return NextResponse.json(

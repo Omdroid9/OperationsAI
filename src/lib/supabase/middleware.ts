@@ -11,6 +11,7 @@ const WORKSPACE_PREFIXES = [
   "/reglens",
   "/prospecting",
   "/calls",
+  "/settings",
 ];
 
 function isWorkspacePath(pathname: string): boolean {

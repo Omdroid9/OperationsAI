@@ -1,0 +1,393 @@
+{
+ "model": "gemini-embedding-001",
+ "hasVectors": true,
+ "corpus": {
+  "size": 300,
+  "fetchedAt": "2026-11-12"
+ },
+ "docketK": 5,
+ "goldenK": 4,
+ "docket": [
+  {
+   "stratum": "rules_and_notices",
+   "rows": [
+    {
+     "strategy": "dense",
+     "queries": 131,
+     "recallAtK": 0.9358778625954198,
+     "mrr": 0.9033078880407124,
+     "gatedPrecision": 0.8628498727735369,
+     "gatedRecall": 0.8374045801526717,
+     "gatedShown": 1.2671755725190839,
+     "gatedEmpty": 0
+    },
+    {
+     "strategy": "bm25",
+     "queries": 131,
+     "recallAtK": 0.9664122137404579,
+     "mrr": 0.9643765903307889,
+     "gatedPrecision": 0.9243002544529263,
+     "gatedRecall": 0.9048346055979644,
+     "gatedShown": 1.251908396946565,
+     "gatedEmpty": 0
+    },
+    {
+     "strategy": "hybrid",
+     "queries": 131,
+     "recallAtK": 0.9511450381679389,
+     "mrr": 0.9223918575063612,
+     "gatedPrecision": 0.9243002544529263,
+     "gatedRecall": 0.9048346055979644,
+     "gatedShown": 1.251908396946565,
+     "gatedEmpty": 0
+    },
+    {
+     "strategy": "embedding_only",
+     "queries": 131,
+     "recallAtK": 0.981679389312977,
+     "mrr": 0.9847328244274809,
+     "gatedPrecision": 0.9338422391857507,
+     "gatedRecall": 0.9435114503816794,
+     "gatedShown": 1.297709923664122,
+     "gatedEmpty": 0
+    },
+    {
+     "strategy": "embedding",
+     "queries": 131,
+     "recallAtK": 0.9740458015267175,
+     "mrr": 0.9834605597964375,
+     "gatedPrecision": 0.9338422391857507,
+     "gatedRecall": 0.9435114503816794,
+     "gatedShown": 1.297709923664122,
+     "gatedEmpty": 0
+    }
+   ]
+  },
+  {
+   "stratum": "medical_exemption_series",
+   "rows": [
+    {
+     "strategy": "dense",
+     "queries": 93,
+     "recallAtK": 0.3439068100358423,
+     "mrr": 0.5166666666666667,
+     "gatedPrecision": 0.421505376344086,
+     "gatedRecall": 0.16182795698924718,
+     "gatedShown": 1.935483870967742,
+     "gatedEmpty": 0
+    },
+    {
+     "strategy": "bm25",
+     "queries": 93,
+     "recallAtK": 0.3471326164874552,
+     "mrr": 0.5267025089605736,
+     "gatedPrecision": 0.41290322580645167,
+     "gatedRecall": 0.1704301075268816,
+     "gatedShown": 1.956989247311828,
+     "gatedEmpty": 0
+    },
+    {
+     "strategy": "hybrid",
+     "queries": 93,
+     "recallAtK": 0.3492831541218637,
+     "mrr": 0.52078853046595,
+     "gatedPrecision": 0.41290322580645167,
+     "gatedRecall": 0.1704301075268816,
+     "gatedShown": 1.956989247311828,
+     "gatedEmpty": 0
+    },
+    {
+     "strategy": "embedding_only",
+     "queries": 93,
+     "recallAtK": 0.42419354838709694,
+     "mrr": 0.5358422939068103,
+     "gatedPrecision": 0.44014336917562735,
+     "gatedRecall": 0.18620071684587805,
+     "gatedShown": 2.2795698924731185,
+     "gatedEmpty": 0
+    },
+    {
+     "strategy": "embedding",
+     "queries": 93,
+     "recallAtK": 0.3775985663082438,
+     "mrr": 0.5164874551971327,
+     "gatedPrecision": 0.44014336917562735,
+     "gatedRecall": 0.18620071684587805,
+     "gatedShown": 2.2795698924731185,
+     "gatedEmpty": 0
+    }
+   ]
+  }
+ ],
+ "golden": [
+  {
+   "kind": "keyword",
+   "rows": [
+    {
+     "strategy": "dense",
+     "cases": 7,
+     "recallAtK": 0.9047619047619048,
+     "precisionAtK": 1,
+     "mrr": 1,
+     "forbiddenHitCases": 0,
+     "emptyResultCases": 0
+    },
+    {
+     "strategy": "bm25",
+     "cases": 7,
+     "recallAtK": 0.9047619047619048,
+     "precisionAtK": 1,
+     "mrr": 1,
+     "forbiddenHitCases": 0,
+     "emptyResultCases": 0
+    },
+    {
+     "strategy": "hybrid",
+     "cases": 7,
+     "recallAtK": 0.9047619047619048,
+     "precisionAtK": 1,
+     "mrr": 1,
+     "forbiddenHitCases": 0,
+     "emptyResultCases": 0
+    },
+    {
+     "strategy": "embedding_only",
+     "cases": 7,
+     "recallAtK": 0.9285714285714286,
+     "precisionAtK": 1,
+     "mrr": 1,
+     "forbiddenHitCases": 0,
+     "emptyResultCases": 0
+    },
+    {
+     "strategy": "embedding",
+     "cases": 7,
+     "recallAtK": 0.9285714285714286,
+     "precisionAtK": 1,
+     "mrr": 1,
+     "forbiddenHitCases": 0,
+     "emptyResultCases": 0
+    }
+   ]
+  },
+  {
+   "kind": "paraphrase",
+   "rows": [
+    {
+     "strategy": "dense",
+     "cases": 5,
+     "recallAtK": 0.6,
+     "precisionAtK": 0.45,
+     "mrr": 0.45,
+     "forbiddenHitCases": 0,
+     "emptyResultCases": 0
+    },
+    {
+     "strategy": "bm25",
+     "cases": 5,
+     "recallAtK": 0,
+     "precisionAtK": 0,
+     "mrr": 0,
+     "forbiddenHitCases": 0,
+     "emptyResultCases": 5
+    },
+    {
+     "strategy": "hybrid",
+     "cases": 5,
+     "recallAtK": 0,
+     "precisionAtK": 0,
+     "mrr": 0,
+     "forbiddenHitCases": 0,
+     "emptyResultCases": 5
+    },
+    {
+     "strategy": "embedding_only",
+     "cases": 5,
+     "recallAtK": 1,
+     "precisionAtK": 0.9333333333333332,
+     "mrr": 1,
+     "forbiddenHitCases": 0,
+     "emptyResultCases": 0
+    },
+    {
+     "strategy": "embedding",
+     "cases": 5,
+     "recallAtK": 1,
+     "precisionAtK": 0.9333333333333332,
+     "mrr": 1,
+     "forbiddenHitCases": 0,
+     "emptyResultCases": 0
+    }
+   ]
+  }
+ ],
+ "goldenCases": [
+  {
+   "id": "k-new-entrant",
+   "kind": "keyword",
+   "query": "New Entrant safety assurance packet: ELD and hours of service recordkeeping for interstate carriers",
+   "relevant": [
+    "corpus_new-entrant-packet",
+    "corpus_eld-mandate-refresh",
+    "corpus_small-fleet-hos"
+   ],
+   "bm25": [
+    "corpus_new-entrant-packet"
+   ],
+   "embedding": [
+    "corpus_new-entrant-packet",
+    "corpus_eld-mandate-refresh",
+    "corpus_small-fleet-hos"
+   ]
+  },
+  {
+   "id": "k-ifta-irp",
+   "kind": "keyword",
+   "query": "IFTA fuel tax and IRP registration renewal dates for interstate carriers",
+   "relevant": [
+    "corpus_ifta-irp-renewal"
+   ],
+   "bm25": [
+    "corpus_ifta-irp-renewal"
+   ],
+   "embedding": [
+    "corpus_ifta-irp-renewal"
+   ]
+  },
+  {
+   "id": "k-clearinghouse",
+   "kind": "keyword",
+   "query": "Clearinghouse query required before a CDL driver is dispatched",
+   "relevant": [
+    "corpus_drug-alcohol-clearinghouse"
+   ],
+   "bm25": [
+    "corpus_drug-alcohol-clearinghouse"
+   ],
+   "embedding": [
+    "corpus_drug-alcohol-clearinghouse"
+   ]
+  },
+  {
+   "id": "k-ca-bit",
+   "kind": "keyword",
+   "query": "California BIT terminal inspection and maintenance file readiness",
+   "relevant": [
+    "corpus_ca-bit-inspection"
+   ],
+   "bm25": [
+    "corpus_ca-bit-inspection"
+   ],
+   "embedding": [
+    "corpus_ca-bit-inspection"
+   ]
+  },
+  {
+   "id": "k-authority",
+   "kind": "keyword",
+   "query": "for-hire authority financial responsibility filing lapsed",
+   "relevant": [
+    "corpus_ucs-filing"
+   ],
+   "bm25": [
+    "corpus_ucs-filing"
+   ],
+   "embedding": [
+    "corpus_ucs-filing"
+   ]
+  },
+  {
+   "id": "k-small-fleet",
+   "kind": "keyword",
+   "query": "small fleet hours of service logs and supporting documents",
+   "relevant": [
+    "corpus_small-fleet-hos",
+    "corpus_eld-mandate-refresh"
+   ],
+   "bm25": [
+    "corpus_small-fleet-hos",
+    "corpus_eld-mandate-refresh"
+   ],
+   "embedding": [
+    "corpus_small-fleet-hos"
+   ]
+  },
+  {
+   "id": "k-hazmat",
+   "kind": "keyword",
+   "query": "hazmat security plan and employee training for placarded loads",
+   "relevant": [
+    "corpus_hazmat-security"
+   ],
+   "bm25": [
+    "corpus_hazmat-security"
+   ],
+   "embedding": [
+    "corpus_hazmat-security"
+   ]
+  },
+  {
+   "id": "p-eld",
+   "kind": "paraphrase",
+   "query": "in-cab hardware that replaces paper logbooks for tracking driver duty time",
+   "relevant": [
+    "corpus_eld-mandate-refresh",
+    "corpus_small-fleet-hos"
+   ],
+   "bm25": [],
+   "embedding": [
+    "corpus_eld-mandate-refresh",
+    "corpus_small-fleet-hos",
+    "corpus_new-entrant-packet"
+   ]
+  },
+  {
+   "id": "p-authority",
+   "kind": "paraphrase",
+   "query": "proof of liability insurance expired so operating permission was suspended",
+   "relevant": [
+    "corpus_ucs-filing"
+   ],
+   "bm25": [],
+   "embedding": [
+    "corpus_ucs-filing"
+   ]
+  },
+  {
+   "id": "p-clearinghouse",
+   "kind": "paraphrase",
+   "query": "check the substance testing database before hiring a trucker",
+   "relevant": [
+    "corpus_drug-alcohol-clearinghouse"
+   ],
+   "bm25": [],
+   "embedding": [
+    "corpus_drug-alcohol-clearinghouse"
+   ]
+  },
+  {
+   "id": "p-ifta-irp",
+   "kind": "paraphrase",
+   "query": "quarterly fuel tax decals and apportioned plates are about to expire",
+   "relevant": [
+    "corpus_ifta-irp-renewal"
+   ],
+   "bm25": [],
+   "embedding": [
+    "corpus_ifta-irp-renewal"
+   ]
+  },
+  {
+   "id": "p-new-entrant",
+   "kind": "paraphrase",
+   "query": "recently registered trucking company facing its first safety audit",
+   "relevant": [
+    "corpus_new-entrant-packet"
+   ],
+   "bm25": [],
+   "embedding": [
+    "corpus_new-entrant-packet"
+   ]
+  }
+ ]
+}

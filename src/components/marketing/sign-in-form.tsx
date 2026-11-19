@@ -34,7 +34,7 @@ export function SignInForm() {
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-5">
           <MarketingButton href="/app">Enter product</MarketingButton>
-          <Link href="/#product" className="mkt-text-link">
+          <Link href="/#loop" className="mkt-text-link">
             See product screens
           </Link>
         </div>

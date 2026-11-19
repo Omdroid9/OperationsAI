@@ -7,8 +7,9 @@ import { useEffect, useState } from "react";
 
 /** In-page anchors only — public marketing is a single product page. */
 const LINKS = [
-  { href: "/#use-case", label: "Who it’s for" },
-  { href: "/#product", label: "Product" },
+  { href: "/#loop", label: "How it works" },
+  { href: "/#safeguards", label: "Safeguards" },
+  { href: "/#evidence", label: "Test results" },
   { href: "/#faq", label: "FAQ" },
 ];
 

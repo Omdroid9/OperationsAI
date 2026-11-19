@@ -174,6 +174,9 @@ export function Topbar({
               <DropdownMenuItem disabled={demoMode} onClick={() => void clearLiveWorkspace()}>
                 Clear live workspace
               </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => router.push("/settings/retrieval")}>
+                Retrieval quality
+              </DropdownMenuItem>
               {authRequired ? (
                 <>
                   <DropdownMenuSeparator />

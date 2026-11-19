@@ -1,4 +1,5 @@
-export type RegulationChunkSource = "seeded_index" | "workspace";
+/** seeded_index: illustrative sample. federal_register: published document. workspace: staff import. */
+export type RegulationChunkSource = "seeded_index" | "federal_register" | "workspace";
 
 export interface RegulationChunk {
   id: string;
@@ -14,21 +15,32 @@ export interface RegulationChunk {
   tags: string[];
   source: RegulationChunkSource;
   sourceUrl: string | null;
+  /** Federal Register docket ids and RINs, when published. */
+  docketIds?: string[];
+  rins?: string[];
 }
 
 export interface RetrievedNotice {
   chunk: RegulationChunk;
   score: number;
-  /** Dense cosine contribution before RRF fusion (0–1). */
+  /** Hashed-token cosine. Kept for the eval ablation; not used to rank by default. */
   denseScore: number;
   /** BM25 raw score for this chunk. */
   bm25Score: number;
   /** RRF fusion score (Cormack et al., k=60). */
   rrfScore: number;
+  /** Overlap terms attested in the notice's own text (title + body). */
   overlapTerms: string[];
+  /** Candidate terms that matched only an assigned label, not the notice text. Not displayed. */
+  unattestedTerms?: string[];
   whyRelated: string;
-  /** Fraction of overlap terms attested in the cited chunk text. */
-  citationFaithfulness: number;
+  /**
+   * Attested terms / candidate terms. Below 1 means some matches rested on labels alone.
+   * Null when the notice was matched on meaning with no term claims to check.
+   */
+  citationFaithfulness: number | null;
+  /** Embedding cosine between the query and this notice, when model vectors were used. */
+  semanticScore?: number;
 }
 
 export interface MatchGrounding {
@@ -43,7 +55,8 @@ export interface MatchGrounding {
 export interface RegulationRagResult {
   regulationId: string;
   queryText: string;
-  method: "hybrid_bm25_dense_rrf";
+  /** bm25: keyless term ranking. embedding: model vectors + BM25, fused with RRF. */
+  method: "bm25" | "hybrid_bm25_embedding_rrf";
   similarNotices: RetrievedNotice[];
   matchGrounding: MatchGrounding[];
   disclaimer: string;

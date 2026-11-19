@@ -70,6 +70,33 @@ export function bm25Scores(
   return scores;
 }
 
+/**
+ * The score the query would get against a document identical to itself.
+ * Dividing a notice's score by this gives the share of the query's term weight
+ * the notice covers, which is comparable across queries of different length.
+ */
+export function bm25SelfScore(
+  index: Bm25Index,
+  query: string,
+  options?: { k1?: number; b?: number },
+): number {
+  const k1 = options?.k1 ?? 1.2;
+  const b = options?.b ?? 0.75;
+  const tokens = tokenizeRegulationText(query);
+  if (tokens.length === 0 || index.N === 0) return 0;
+  const tf = new Map<string, number>();
+  for (const token of tokens) tf.set(token, (tf.get(token) ?? 0) + 1);
+  let score = 0;
+  for (const token of tokens) {
+    const freq = tf.get(token)!;
+    const docFreq = index.df.get(token) ?? 0;
+    const idf = Math.log(1 + (index.N - docFreq + 0.5) / (docFreq + 0.5));
+    const denom = freq + k1 * (1 - b + b * (tokens.length / (index.avgdl || 1)));
+    score += idf * ((freq * (k1 + 1)) / denom);
+  }
+  return score;
+}
+
 export function rankedIds(scores: Map<string, number>): string[] {
   return [...scores.entries()]
     .sort((a, b) => b[1] - a[1])

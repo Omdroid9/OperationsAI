@@ -2,10 +2,14 @@ import { collectAttentionItems } from "@/lib/attention";
 import { demoStore, type IngestCarrierOptions } from "@/lib/demo/store";
 import type { LeadIntakeResult } from "@/lib/leads/intake";
 import type { CensusProspectSaveInput } from "@/lib/prospecting/types";
+import { fetchBriefingLive, fetchSimilarNoticesLive } from "@/lib/live/client";
+import { buildExtractiveBriefing, type Briefing } from "@/lib/regulations/briefing";
+import type { StoredImpactRun } from "@/lib/regulations/impact-run";
 import { isDemoMode, LIVE_MODE_SETUP } from "@/lib/mode/demo-mode";
 import { filterLiveWorkspace } from "@/lib/mode/live-workspace";
 import type { NormalizedFmcsaCarrier } from "@/lib/providers/types";
 import {
+  DEMO_CORPUS,
   buildRegulationRagResult,
   emptyRegulationRagResult,
   type RegulationRagResult,
@@ -137,6 +141,12 @@ export interface RegulationRepository {
   clearFederalRegisterRegulations(): Promise<number>;
   getAllMatches(): Promise<Record<string, RegulationMatch[]>>;
   getSimilarNotices(regulationId: string): Promise<RegulationRagResult>;
+  getImpactRun(regulationId: string): Promise<StoredImpactRun | null>;
+  saveImpactRun(run: StoredImpactRun): Promise<StoredImpactRun>;
+  /** Creates case tasks for approved customers. Returns how many were created. */
+  createImpactTasks(regulationId: string, carrierIds: string[], decidedBy: string): Promise<number>;
+  /** Cited briefing built from the notice and the notices retrieved for it. */
+  getBriefing(regulationId: string, similar: RegulationRagResult): Promise<Briefing | null>;
   markRelevantToCase(
     regulationId: string,
     caseId: string,
@@ -355,14 +365,55 @@ export const demoRegulationRepository: RegulationRepository = {
     if (regulation.status === "needs_review" && !regulation.sourceText.trim()) {
       return delay(emptyRegulationRagResult(regulationId));
     }
+    const input = {
+      regulation,
+      matches: state.matches[regulationId] ?? [],
+      workspaceRegulations: state.regulations,
+    };
+    // Live Mode asks the server for embedding retrieval. Demo Mode, and any
+    // failure, uses the local lexical index so the panel always renders.
+    if (!isDemoMode()) {
+      try {
+        return await fetchSimilarNoticesLive(input);
+      } catch {
+        // Fall through to local retrieval.
+      }
+    }
     return delay(
       buildRegulationRagResult({
-        regulation,
-        matches: state.matches[regulationId] ?? [],
-        workspaceRegulations: state.regulations,
+        ...input,
         limit: 4,
+        corpus: isDemoMode() ? DEMO_CORPUS : undefined,
       }),
     );
+  },
+  async getImpactRun(regulationId) {
+    return workspace().impactRuns?.[regulationId] ?? null;
+  },
+  async saveImpactRun(run) {
+    return demoStore.saveImpactRun(run);
+  },
+  async createImpactTasks(regulationId, carrierIds, decidedBy) {
+    return demoStore.createImpactTasks(regulationId, carrierIds, decidedBy);
+  },
+  async getBriefing(regulationId, similar) {
+    const regulation =
+      workspace().regulations.find((item) => item.id === regulationId) ?? null;
+    if (!regulation || !(regulation.sourceText.trim() || regulation.sourceSummary.trim())) {
+      return null;
+    }
+    const quoted = buildExtractiveBriefing(regulation, similar.similarNotices);
+    // Live Mode asks for a model draft; anything short of a validated draft
+    // falls back to sentences quoted from the sources.
+    if (!isDemoMode()) {
+      try {
+        const drafted = await fetchBriefingLive({ regulationId, sources: quoted.sources });
+        if (drafted) return drafted;
+      } catch {
+        // Fall through to the quoted briefing.
+      }
+    }
+    return delay(quoted);
   },
   async markRelevantToCase(regulationId, caseId, reason, decidedBy) {
     return demoStore.markRegulationRelevantToCase(regulationId, caseId, reason, decidedBy);

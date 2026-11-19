@@ -1,3 +1,4 @@
+import { requireStaffSession } from "@/lib/auth/require-session";
 import { LIVE_MODE_SETUP, readDemoModeFromRequest } from "@/lib/mode/demo-mode";
 import { PATEL_QUALIFICATION, PATEL_TRANSCRIPT } from "@/data/seed";
 import { refreshLiveCallFromDograh } from "@/lib/providers/dograh";
@@ -10,6 +11,9 @@ export const maxDuration = 60;
 const DISCONNECT_ERROR = "Call ended before qualification was captured. Retry the call.";
 
 export async function GET(request: Request, context: { params: Promise<{ id: string }> }) {
+  const session = await requireStaffSession();
+  if (!session.ok) return session.response;
+
   const demoMode = readDemoModeFromRequest(request);
   const { id: callId } = await context.params;
 

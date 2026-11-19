@@ -1,3 +1,4 @@
+import { requireStaffSession } from "@/lib/auth/require-session";
 import { demoStore } from "@/lib/demo/store";
 import { readDemoModeFromRequest } from "@/lib/mode/demo-mode";
 import { buildWorkspaceDuplicateIndex } from "@/lib/prospecting/dedupe";
@@ -44,6 +45,9 @@ function parseFilters(body: Record<string, unknown>): ProspectingFilters {
 }
 
 export async function POST(request: Request) {
+  const session = await requireStaffSession();
+  if (!session.ok) return session.response;
+
   const demoMode = readDemoModeFromRequest(request);
   const body = (await request.json().catch(() => ({}))) as Record<string, unknown>;
   const filters = parseFilters(body);

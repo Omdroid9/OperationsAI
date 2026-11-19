@@ -24,3 +24,7 @@ export { MarketingSectionIntro } from "@/components/marketing/marketing-section-
 export { MarketingTimeline } from "@/components/marketing/marketing-timeline";
 export type { MarketingTimelineStep } from "@/components/marketing/marketing-timeline";
 export { MarketingTitle } from "@/components/marketing/marketing-title";
+export { MarketingEvidence } from "@/components/marketing/marketing-evidence";
+export { MarketingLoop } from "@/components/marketing/marketing-loop";
+export { MarketingSafeguards } from "@/components/marketing/marketing-safeguards";
+export { MarketingSpecimen } from "@/components/marketing/marketing-specimen";

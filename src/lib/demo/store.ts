@@ -1,4 +1,5 @@
 import { createInitialState, PATEL_QUALIFICATION, PATEL_TRANSCRIPT, SAMPLE_MEDICAL_EXTRACTION, SAMPLE_REGULATION_ANALYSIS } from "@/data/seed";
+import type { StoredImpactRun } from "@/lib/regulations/impact-run";
 import { createEmptyWorkspaceState } from "@/lib/demo/empty-state";
 import { resolveStaffId } from "@/data/staff";
 import { consultationNextAction } from "@/lib/consultation/labels";
@@ -1250,6 +1251,43 @@ class DemoStore {
     const confirmed = matches.filter((match) => match.matchType === "confirmed").length;
     const potential = matches.filter((match) => match.matchType === "potential").length;
     return { confirmed, potential, created };
+  }
+
+  getImpactRun(regulationId: string): StoredImpactRun | null {
+    return this.state.impactRuns?.[regulationId] ?? null;
+  }
+
+  saveImpactRun(run: StoredImpactRun): StoredImpactRun {
+    this.state.impactRuns = { ...(this.state.impactRuns ?? {}), [run.regulationId]: run };
+    this.emit();
+    return run;
+  }
+
+  /**
+   * Creates a review task on the Docket case of each approved customer.
+   * Called only after the impact run's approval gate has passed.
+   */
+  createImpactTasks(regulationId: string, carrierIds: string[], decidedBy: string): number {
+    const regulation = this.state.regulations.find((item) => item.id === regulationId);
+    if (!regulation) throw new Error("Regulation not found");
+    const matches = this.state.matches[regulationId] ?? [];
+    let created = 0;
+    for (const carrierId of carrierIds) {
+      const serviceCase = this.state.cases.find((item) => item.carrierId === carrierId);
+      if (!serviceCase) continue;
+      const before = this.state.tasks.length;
+      const change = matches.find((match) => match.carrierId === carrierId)?.requiredChange;
+      this.markRegulationRelevantToCase(
+        regulationId,
+        serviceCase.id,
+        change ?? "Review recommended for this notice.",
+        decidedBy,
+      );
+      if (this.state.tasks.length > before) created += 1;
+    }
+    regulation.customersFlagged = true;
+    this.emit();
+    return created;
   }
 
   flagCustomers(regulationId: string): number {

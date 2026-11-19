@@ -1,16 +1,20 @@
 import {
   MarketingAccordion,
+  MarketingEvidence,
+  MarketingLoop,
   MarketingPrimaryButton,
   MarketingProductHero,
-  MarketingScreens,
-  MarketingUseCase,
+  MarketingProductShot,
+  MarketingSafeguards,
+  MarketingSpecimen,
 } from "@/components/marketing";
+import { getLandingSpecimen } from "@/lib/marketing/specimen";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SkyOS — staff workspace for a trucking compliance agency",
+  title: "SkyOS — run a trucking compliance desk from one workspace",
   description:
-    "Staff workspace for a trucking compliance agency. Carriers never log in. Intake, voice qualification, CRM, Docket cases, and RegLens monitoring, with human review.",
+    "Staff workspace for a trucking compliance agency: leads, qualification calls, Docket cases and regulation watch. Extracted values show their source and staff approve before anything reaches a case.",
 };
 
 const FAQ = [
@@ -41,13 +45,46 @@ const FAQ = [
 ] as const;
 
 export default function MarketingHomePage() {
+  const specimen = getLandingSpecimen();
   return (
     <>
-      <MarketingProductHero />
+      <MarketingProductHero
+        specimen={specimen ? <MarketingSpecimen specimen={specimen} /> : undefined}
+      />
 
-      <MarketingUseCase />
+      <MarketingLoop />
 
-      <MarketingScreens />
+      <MarketingSafeguards />
+
+      <MarketingEvidence />
+
+      <section
+        id="use-case"
+        className="scroll-mt-24 border-b border-[var(--mkt-border)] bg-[var(--mkt-canvas)]"
+        aria-labelledby="use-case-title"
+      >
+        <div className="mx-auto grid max-w-[var(--mkt-content-max)] items-center gap-10 px-6 py-20 md:grid-cols-12 md:px-8 md:py-28">
+          <div className="md:col-span-5">
+            <h2 id="use-case-title" className="mkt-title-section text-[var(--mkt-ink)]">
+              Built for the agency, not the carrier
+            </h2>
+            <p className="mt-4 font-sans text-base leading-relaxed text-[var(--mkt-ink-muted)]">
+              SkyOS is for the shop that handles authority, filings, renewals and driver documents
+              on behalf of carriers. Staff sign in. Carriers never do. It works alongside the
+              judgment of the people doing the filing and does not replace it.
+            </p>
+          </div>
+          <div className="md:col-span-6 md:col-start-7">
+            <MarketingProductShot
+              src="/marketing/ops-compliance-desk.webp"
+              alt="A compliance desk with files, a laptop, and a truck outside the window"
+              aspectClassName="aspect-[16/10]"
+              objectFit="cover"
+              sizes="(max-width: 768px) 100vw, 36rem"
+            />
+          </div>
+        </div>
+      </section>
 
       <section
         id="faq"
@@ -70,9 +107,10 @@ export default function MarketingHomePage() {
       <section id="cta" className="mkt-on-dark scroll-mt-24 bg-[var(--mkt-brand)]">
         <div className="mx-auto flex max-w-[var(--mkt-content-max)] flex-col gap-8 px-6 py-16 md:flex-row md:items-end md:justify-between md:px-8 md:py-20">
           <div className="max-w-xl">
-            <h2 className="mkt-title-section">Run the demo loop</h2>
+            <h2 className="mkt-title-section">Walk the whole loop on demo data</h2>
             <p className="mt-4 font-sans text-base leading-relaxed text-[var(--mkt-on-dark-muted)]">
-              Seeded data covers every step, from first review to regulation follow-up.
+              The demo workspace covers every step, from a new lead to a regulation follow-up. No
+              API keys are needed.
             </p>
           </div>
           <MarketingPrimaryButton href="/access" variant="on-dark">

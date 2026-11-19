@@ -1,0 +1,2059 @@
+{
+ "promptVersion": 2,
+ "drafter": "gemini-3.5-flash-lite",
+ "judge": "gemini-3.5-flash",
+ "corpusFetchedAt": "2026-11-12",
+ "results": [
+  {
+   "documentNumber": "2025-09704",
+   "title": "Parts and Accessories Necessary for Safe Operation; Certification and Labeling Requirements for Rear Impact Protection Guards",
+   "sourceIds": [
+    "this_notice",
+    "fr_2026-03255"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety Regulations to rescind the requirement that rear impact guards be permanently marked or labeled with a certification from the impact guard manufacturer as required by the National Highway Traffic Safety Administration's Federal Motor Vehicle Safety Standard.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety Regulations (FMCSRs) to rescind the requirement that the rear impact guard be permanently marked or labeled with a certification from the impact guard manufacturer as required by the National Highway Traffic Safety Administration's (NHTSA) applicable Federal Motor Vehicle Safety Standard (FMVSS).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The certification label or marking currently provides motor carriers purchasing new trailers or replacement impact guards with a means to determine whether the equipment is certified as meeting the Federal Motor Vehicle Safety Standard.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The labeling or marking requirement has proven problematic when the label or marking becomes illegible or wears off during the service life of the trailer or guard.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The proposal would eliminate an unintended regulatory burden on motor carriers without compromising safety, as this notice of proposed rulemaking would not affect the applicable Federal Motor Vehicle Safety Standard.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The final rule eliminates an unintended regulatory burden on motor carriers without compromising safety, as it does not affect the applicable Federal Motor Vehicle Safety Standard.",
+     "citations": [
+      "fr_2026-03255"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA announces its decision to renew the exemption for truck and bus drivers who are licensed in the Commonwealth of Virginia and need a Skill Performance Evaluation (SPE) Certificate to operate commercial motor vehicles (CMV) in interstate commerce.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The final rule also rescinds a guidance document pertaining to illegible, incomplete, or missing rear impact guard certification labels.",
+     "citations": [
+      "fr_2026-03255"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2025-09713",
+   "title": "Removal of Self-Reporting Requirement",
+   "sourceIds": [
+    "this_notice",
+    "fr_2026-12449"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA proposes to revise its regulations requiring commercial driver's license holders to self-report motor vehicle violations to their State of domicile.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA proposes to revise its regulations requiring commercial driver's license (CDL) holders to self-report motor vehicle violations to their State of domicile.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "Self-reporting is no longer necessary due to the implementation of the exclusive electronic exchange of violations between State drivers licensing agencies in 2024.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "This action supports the Administration's deregulatory efforts.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA amends the regulations requiring commercial driver's license holders to self-report motor vehicle violations to their State of domicile.",
+     "citations": [
+      "fr_2026-12449"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "Self-reporting is no longer necessary with the implementation of the exclusive electronic exchange of violations between State Drivers Licensing Agencies in 2024.",
+     "citations": [
+      "fr_2026-12449"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA announces its decision to deny CloudTrucks, LLC's (CloudTrucks) request for an exemption from the requirement to collect the following information from prospective drivers: list of employers' names, addresses, and dates of employment, reason for leaving, whether the driver was subject to the Federal Motor Carrier Safety Regulations (FMCSRs) while employed by the previous employer, and if the driver was subject to the alcohol and controlled substances testing requirements.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "This action supports the Administration's deregulatory efforts.",
+     "citations": [
+      "fr_2026-12449"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2025-09720",
+   "title": "Commercial Driver's License Standards; Requirements and Penalties: Applicability to the Exception for Certain Military Personnel",
+   "sourceIds": [
+    "this_notice",
+    "fr_2026-03263"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety regulations to allow dual-status military technicians to qualify for the exception for certain military personnel from commercial driver license standards.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety regulations (FMCSRs) to allow dual-status military technicians to qualify for the exception for certain military personnel from commercial driver license (CDL) standards.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "This rulemaking responds to a petition for rulemaking submitted by James D. Welch.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA amends the Federal Motor Carrier Safety regulations to allow dual-status military technicians to qualify for the exception for certain military personnel from commercial driver's license standards.",
+     "citations": [
+      "fr_2026-03263"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "Dual-status military technicians are civilian technicians employed by military units to provide day-to-day support such as training, maintenance, and other activities required to support the unit.",
+     "citations": [
+      "fr_2026-03263"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "The Federal Motor Carrier Safety Administration (FMCSA) requests public comment on an application for exemption submitted by Truck-Lite Co., LLC (Truck-Lite) to allow motor carriers to install auxiliary amber brake-activated pulsating warning lamps on the rear of commercial trucks and trailers in addition to the steady-burning brake lamps required by the Federal Motor Carrier Safety Regulations (FMCSRs).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "They are required by statute to maintain membership in one of the Army or Air Force Reserve Components as a condition of their civilian employment.",
+     "citations": [
+      "fr_2026-03263"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2025-09734",
+   "title": "Parts and Accessories Necessary for Safe Operation; Tire Load Markings",
+   "sourceIds": [
+    "this_notice",
+    "fr_2026-03260"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA proposes to revise the requirements for tires on commercial motor vehicles to clarify that the Federal Motor Carrier Safety Regulations do not require tire load restriction markings on their sidewalls.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA proposes to revise the requirements for tires on commercial motor vehicles (CMVs) to clarify that the Federal Motor Carrier Safety Regulations (FMCSRs) do not require tire load restriction markings on their sidewalls.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "This change would eliminate confusion and clarify the scope of FMCSA's authority regarding the requirements for tires in the Federal Motor Carrier Safety Regulations.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA amends the requirements for commercial motor vehicle tires to clarify that the Federal Motor Carrier Safety Regulations do not require tire load restriction markings on the sidewalls of the tires.",
+     "citations": [
+      "fr_2026-03260"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA amends the Federal Motor Carrier Safety Regulations (FMCSRs) to add an exception from the lamp and reflective device requirements for license plate lamps on the rear of truck tractors while towing a trailer.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "This change eliminates confusion and clarifies the scope of FMCSA's authority regarding requirements for commercial motor vehicle tires.",
+     "citations": [
+      "fr_2026-03260"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2025-11169",
+   "title": "Agency Information Collection Activities; Renewal of an Approved Information Collection: Motor Carrier Identification Report",
+   "sourceIds": [
+    "this_notice",
+    "fr_2025-20265"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA plans to submit an Information Collection Request titled 'Motor Carrier Identification Report' to the Office of Management and Budget for review and approval under the Paperwork Reduction Act of 1995.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "In accordance with the Paperwork Reduction Act of 1995, FMCSA announces its plan to submit the Information Collection Request (ICR) described below to the Office of Management and Budget (OMB) for its review and approval and invites public comment.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The report is used to identify regulated entities, prioritize agency activities, assess safety outcomes, and for statistical purposes.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The information collection is necessary to ensure that regulated entities are registered with the DOT.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA previously published a 60-day notice in the Federal Register on June 17, 2025, announcing its intention to submit this Information Collection Request for renewal.",
+     "citations": [
+      "fr_2025-20265"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA clarifies the requirement to complete a Driver Vehicle Inspection Report (DVIR) based upon a public comment filed by the National Tank Truck Carriers (NTTC).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "No comments were received in response to the earlier notice.",
+     "citations": [
+      "fr_2025-20265"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2025-12202",
+   "title": "Commercial Driver's License: Massachusetts Department of State Police; Application for Exemption",
+   "sourceIds": [
+    "this_notice",
+    "fr_2025-24111"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA requests public comment on the Massachusetts Department of State Police's request for an exemption to conduct modified commercial driver's license skills test exams on the island of Martha's Vineyard.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA requests public comment on the Massachusetts Department of State Police's request for an exemption to conduct modified commercial driver's license (CDL) skills test exams on the island of Martha's Vineyard.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "According to the applicant, the island of Martha's Vineyard lacks the infrastructure for applicant drivers to demonstrate the two sets of lane changes required by the CDL skills test.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA announced its decision to grant an exemption to the Massachusetts Department of State Police allowing the State to waive specific portions of the commercial driver's license skills test for applicants taking the test on the island of Martha's Vineyard and issue those drivers a restricted CDL.",
+     "citations": [
+      "fr_2025-24111"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The Agency granted this exemption because the island of Martha's Vineyard lacks the highway infrastructure to support a demonstration of certain on-road safe driving skills required by the CDL skills test requirements.",
+     "citations": [
+      "fr_2025-24111"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA extends the comment period for its February 9, 2026, notice requesting public comment on an application from Grote Industries, LLC (Grote) for an exemption from the requirement that exterior lighting devices on commercial motor vehicles (CMVs) be steady-burning.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA concluded that granting the exemption, subject to specific terms and conditions, is likely to achieve a level of safety equivalent to or greater than the level of safety that would be achieved absent the exemption.",
+     "citations": [
+      "fr_2025-24111"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2025-12721",
+   "title": "Parts and Accessories Necessary for Safe Operation; Liquid-Burning Flares; Correction",
+   "sourceIds": [
+    "this_notice",
+    "fr_2025-10244"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA proposed to remove references to liquid-burning flares from the warning device requirements in the Federal Motor Carrier Safety Regulations in an NPRM published in the Federal Register on May 30, 2025.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "In an NPRM published in the Federal Register on May 30, 2025, FMCSA proposed to remove references to liquid-burning flares from the warning device requirements in the Federal Motor Carrier Safety Regulations.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The proposed revision would remove outdated language referring to warning devices that FMCSA believes are no longer used.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA published a correction on June 5, 2025, to address an error in the docket number, errors in the ADDRESSES section, and errors in the SUPPLEMENTARY INFORMATION section of the NPRM.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "Both the NPRM and subsequent correction contained an error in the regulation identification number.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "In an NPRM published in the Federal Register on May 30, 2025, FMCSA proposed to remove references to liquid-burning flares from the warning device requirements in the Federal Motor Carrier Safety Regulations to remove outdated language referring to warning devices that FMCSA believes are no longer used.",
+     "citations": [
+      "fr_2025-10244"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA requests public comment on an application from Loomis Armored US, LLC (Loomis), seeking renewal of a 5-year exemption that would allow Loomis to continue operating armored vehicles with welded- shut cab doors and the addition of two doors behind the cab.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The NPRM contained an error in the docket number, errors in the ADDRESSES section, and errors in the SUPPLEMENTARY INFORMATION section.",
+     "citations": [
+      "fr_2025-10244"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2025-16252",
+   "title": "Parts and Accessories Necessary for Safe Operation; Exemption Renewal for National Tank Truck Carriers, Inc.",
+   "sourceIds": [
+    "this_notice",
+    "fr_2025-19938"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The Federal Motor Carrier Safety Administration requests public comment on an application from National Tank Truck Carriers, Inc., to renew an exemption for tank trailers.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "The Federal Motor Carrier Safety Administration (FMCSA) requests public comment on the application from National Tank Truck Carriers, Inc. (NTTC) for a renewal of its exemption allowing motor carriers operating tank trailers to install a red or amber brake- activated pulsating lamp positioned in the upper center position or in an upper dual outboard position on the rear of the trailers, in addition to the steady-burning brake lamps required by the Federal Motor Carrier Safety Regulations (FMCSRs).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The exemption allows motor carriers operating tank trailers to install a red or amber brake-activated pulsating lamp in the upper center position or in an upper dual outboard position on the rear of the trailers.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "This pulsating lamp would be used in addition to the steady-burning brake lamps required by the Federal Motor Carrier Safety Regulations.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "National Tank Truck Carriers, Inc. currently holds an exemption for the period October 8, 2020, through October 8, 2025, and requests a five-year renewal.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA requests public comment on Aurora Operations, Inc.'s (Aurora) application for a five-year exemption to allow commercial motor vehicles (CMVs) equipped with a Level 4 automated driving system (ADS) to use a set of cab-mounted warning beacons in lieu of placing reflective warning triangles or fusees around the stopped vehicle.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The Federal Motor Carrier Safety Administration announced its final decision to renew the exemption requested by National Tank Truck Carriers, Inc. for 5 years, unless revoked earlier.",
+     "citations": [
+      "fr_2025-19938"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2025-19938",
+   "title": "Parts and Accessories Necessary for Safe Operation; Exemption Renewal for National Tank Truck Carriers, Inc.",
+   "sourceIds": [
+    "this_notice",
+    "fr_2025-16252"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA announces its final decision to renew an exemption requested by National Tank Truck Carriers, Inc. (NTTC).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA announces its final decision to renew an exemption requested by National Tank Truck Carriers, Inc. (NTTC) to allow motor carriers operating tank trailers to install or continue to use a red or amber brake-activated pulsating lamp positioned in the upper center position or in an upper dual outboard position on the rear of the trailers, in addition to the steady-burning brake lamps required by the Federal Motor Carrier Safety Regulations (FMCSRs).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The exemption allows motor carriers operating tank trailers to install or continue to use a red or amber brake-activated pulsating lamp positioned in the upper center position or in an upper dual outboard position on the rear of the trailers, in addition to the steady-burning brake lamps required by the Federal Motor Carrier Safety Regulations (FMCSRs).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The exemption is renewed for 5 years, unless revoked earlier.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The Federal Motor Carrier Safety Administration (FMCSA) requested public comment on the application from National Tank Truck Carriers, Inc. (NTTC) for a renewal of its exemption.",
+     "citations": [
+      "fr_2025-16252"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "In accordance with the Paperwork Reduction Act of 1995, FMCSA announces its plan to submit the Information Collection Request (ICR) described below to the Office of Management and Budget (OMB) for review and approval.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "NTTC currently holds an exemption for the period October 8, 2020, through October 8, 2025, and requested a five-year renewal of the exemption.",
+     "citations": [
+      "fr_2025-16252"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2025-20128",
+   "title": "Agency Information Collection Activities; Renewal of an Approved Information Collection: Designation of Agents, Motor Carriers, Brokers, and Freight Forwarders",
+   "sourceIds": [
+    "this_notice",
+    "fr_2026-06279"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "Under the Paperwork Reduction Act of 1995, FMCSA announces its plan to submit an Information Collection Request to the Office of Management and Budget for review and approval and invites public comment.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "In accordance with the Paperwork Reduction Act of 1995, FMCSA announces its plan to submit the Information Collection Request (ICR) described below to the Office of Management and Budget (OMB) for review and approval and invites public comment.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA requests approval to renew an Information Collection Request titled Designation of Agents, Motor Carriers, Brokers and Freight Forwarders, OMB control number 2126-0015.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "This renewal is necessary to provide motor carriers, property brokers, and freight forwarders a means to designate process agents, as required by law.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "Under the Paperwork Reduction Act of 1995, FMCSA announced its plan to submit an Information Collection Request to the Office of Management and Budget for review and approval.",
+     "citations": [
+      "fr_2026-06279"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA requested approval to renew the previously approved Information Collection Request titled Designation of Agents, Motor Carriers, Brokers and Freight Forwarders, OMB Control No. 2126-0015.",
+     "citations": [
+      "fr_2026-06279"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "In accordance with the Paperwork Reduction Act of 1995, FMCSA announces its plan to submit the Information Collection Request (ICR) described below to the Office of Management and Budget (OMB) for its review and approval and invites public comment.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "This was necessary to provide motor carriers, property brokers, and freight forwarders a means to designate process agents, as required by law.",
+     "citations": [
+      "fr_2026-06279"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2025-21749",
+   "title": "Hours of Service of Drivers: Application for Exemption; National Propane Gas Association",
+   "sourceIds": [
+    "this_notice",
+    "fr_2025-14187",
+    "fr_2025-12204"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA denies the National Propane Gas Association's application for an exemption from various hours-of-service requirements between December 15 and March 15 each year.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA announces its decision to deny the National Propane Gas Association's (NPGA) application for an exemption from various hours- of-service (HOS) requirements between December 15 and March 15 each year.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA determined that the exemption would not achieve an equivalent or greater level of safety compared to the level achieved without the exemption.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA extended the comment period for the application for 15 days to provide interested parties additional time to submit responses.",
+     "citations": [
+      "fr_2025-14187"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The National Propane Gas Association requested the exemption to help the propane industry prepare and respond to winter emergencies threatening human health and safety.",
+     "citations": [
+      "fr_2025-12204"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The requested exemption would allow drivers to drive up to 12 hours per day and be on duty up to 15 hours per day, without weekly limits.",
+     "citations": [
+      "fr_2025-12204"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA amends the regulations requiring commercial driver's license (CDL) holders to self-report motor vehicle violations to their State of domicile.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The application also proposed replacing the 34-hour restart with a 24-hour restart, following prior notice by the National Propane Gas Association to FMCSA.",
+     "citations": [
+      "fr_2025-12204"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2025-22462",
+   "title": "Commercial Driver's License Standards: Application for Exemption International Motors, LLC, Formerly Known as Navistar, Inc.",
+   "sourceIds": [
+    "this_notice",
+    "fr_2025-10658"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA renewed the exemption granted to International Motors, LLC, formerly known as Navistar, Inc., from commercial driver's license regulations for one commercial motor vehicle driver.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA announces its decision to renew the exemption granted to International Motors, LLC (International), formally known as Navistar, Inc., from the commercial driver's license (CDL) regulations for one of its commercial motor vehicle (CMV) drivers.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The exemption allows Mr. Erik Holma, manager of Drivability Control Systems for Scania AB for International's parent company, TRATON SE, to test drive fleet vehicles on U.S. roads.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA requested public comment on the request from International Motors, LLC, formerly known as Navistar, to renew an exemption from commercial driver's license regulations for one commercial motor vehicle driver.",
+     "citations": [
+      "fr_2025-10658"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA withdraws its January 16, 2026, notice that requested public comment on an application from Charles Machine Works, Inc. (CMW) seeking renewal of a five-year exemption from the Agency's prohibition against the use of gravity-fed or siphon-fed fuel systems on commercial motor vehicles (CMVs).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The exemption would allow Mr. Erik Holma, manager of Drivability Control Systems for Scania AB, to test drive various International vehicles on U.S. roads.",
+     "citations": [
+      "fr_2025-10658"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2026-00318",
+   "title": "Qualification of Drivers: Skill Performance Evaluation Program; Virginia Department of Motor Vehicles Application for Exemption Renewal",
+   "sourceIds": [
+    "this_notice",
+    "fr_2025-12550",
+    "fr_2025-13560"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA announces its decision to renew the exemption for truck and bus drivers who are licensed in the Commonwealth of Virginia and need a Skill Performance Evaluation (SPE) Certificate to operate commercial motor vehicles in interstate commerce.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA announces its decision to renew the exemption for truck and bus drivers who are licensed in the Commonwealth of Virginia and need a Skill Performance Evaluation (SPE) Certificate to operate commercial motor vehicles (CMV) in interstate commerce.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA has determined that the exemption is likely to achieve a level of safety that is equivalent to, or greater than, the level that would be achieved without the exemption.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA previously announced a decision to provisionally renew an exemption for truck and bus drivers licensed in Virginia needing an SPE Certificate to operate CMVs in interstate commerce.",
+     "citations": [
+      "fr_2025-12550"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The provisional exemption renewal was limited to six months, with a final decision on whether to renew through July 3030 dependent on a review of public comments.",
+     "citations": [
+      "fr_2025-12550"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA corrected its July 7, 2025, notice regarding the provisional renewal for Virginia-licensed truck and bus drivers needing an SPE Certificate.",
+     "citations": [
+      "fr_2025-13560"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety Regulations (FMCSRs) to rescind the requirement that the rear impact guard be permanently marked or labeled with a certification from the impact guard manufacturer as required by the National Highway Traffic Safety Administration's (NHTSA) applicable Federal Motor Vehicle Safety Standard (FMVSS).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The correction noted that the expiration date for the provisional renewal was incorrectly published as July 8, 2030, and the correct expiration date is January 8, 2026.",
+     "citations": [
+      "fr_2025-13560"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2026-02368",
+   "title": "Application for Employment: CloudTrucks, LLC., Application for Exemption",
+   "sourceIds": [
+    "this_notice",
+    "fr_2025-12205"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA denies CloudTrucks, LLC's request for an exemption from the requirement to collect specific employment history and testing information from prospective drivers.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA announces its decision to deny CloudTrucks, LLC's (CloudTrucks) request for an exemption from the requirement to collect the following information from prospective drivers: list of employers' names, addresses, and dates of employment, reason for leaving, whether the driver was subject to the Federal Motor Carrier Safety Regulations (FMCSRs) while employed by the previous employer, and if the driver was subject to the alcohol and controlled substances testing requirements.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA determined that the exemption is not likely to achieve a level of safety equivalent to or greater than the level achieved without it.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA requested public comment on CloudTrucks, LLC's application for an exemption from certain requirements of the application for employment regulations.",
+     "citations": [
+      "fr_2025-12205"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety Regulations (FMCSRs) to rescind the requirement that the rear impact guard be permanently marked or labeled with a certification from the impact guard manufacturer as required by the National Highway Traffic Safety Administration's (NHTSA) applicable Federal Motor Vehicle Safety Standard (FMVSS).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "CloudTrucks proposed using its own verification process involving national databases such as the DAC report, DACH, PSP, and CDLIS instead of collecting the specified information directly.",
+     "citations": [
+      "fr_2025-12205"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2026-03168",
+   "title": "Parts and Accessories Necessary for Safe Operation; Application for Exemption From Truck-Lite Co., LLC",
+   "sourceIds": [
+    "this_notice",
+    "fr_2026-11059"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The Federal Motor Carrier Safety Administration requests public comment on an application for exemption submitted by Truck-Lite Co., LLC.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "The Federal Motor Carrier Safety Administration (FMCSA) requests public comment on an application for exemption submitted by Truck-Lite Co., LLC (Truck-Lite) to allow motor carriers to install auxiliary amber brake-activated pulsating warning lamps on the rear of commercial trucks and trailers in addition to the steady-burning brake lamps required by the Federal Motor Carrier Safety Regulations (FMCSRs).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The application allows motor carriers to install auxiliary amber brake-activated pulsating warning lamps on the rear of commercial trucks and trailers in addition to steady-burning brake lamps required by the Federal Motor Carrier Safety Regulations.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The Federal Motor Carrier Safety Administration announced its decision to grant Truck-Lite Co. LLC's application for a limited 5-year exemption.",
+     "citations": [
+      "fr_2026-11059"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The exemption allows motor carriers to install Truck-Lite and/or sister company ECCO auxiliary amber brake-activated pulsating lamps on the rear of commercial motor vehicles in addition to steady-burning brake lamps required by the Federal Motor Carrier Safety Regulations.",
+     "citations": [
+      "fr_2026-11059"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety Regulations (FMCSRs) to rescind the requirement that the rear impact guard be permanently marked or labeled with a certification from the impact guard manufacturer as required by the National Highway Traffic Safety Administration's (NHTSA) applicable Federal Motor Vehicle Safety Standard (FMVSS).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The Agency determined that granting the exemption would likely achieve a level of safety equivalent to or greater than the level of safety provided by the regulation.",
+     "citations": [
+      "fr_2026-11059"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2026-03259",
+   "title": "Parts and Accessories Necessary for Safe Operation; License Plate Lamps",
+   "sourceIds": [
+    "this_notice",
+    "fr_2025-09733"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA amends the Federal Motor Carrier Safety Regulations (FMCSRs) to add an exception from the lamp and reflective device requirements for license plate lamps on the rear of truck tractors while towing a trailer.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA amends the Federal Motor Carrier Safety Regulations (FMCSRs) to add an exception from the lamp and reflective device requirements for license plate lamps on the rear of truck tractors while towing a trailer.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "This amendment removes an unnecessary regulatory requirement without impacting safety.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA proposes to provide an exception from the lamp and reflective device requirements for license plate lamps on the rear of truck tractors while towing a trailer.",
+     "citations": [
+      "fr_2025-09733"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety Regulations (FMCSRs) to rescind the requirement that the rear impact guard be permanently marked or labeled with a certification from the impact guard manufacturer as required by the National Highway Traffic Safety Administration's (NHTSA) applicable Federal Motor Vehicle Safety Standard (FMVSS).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "This proposed change would remove an unnecessary regulatory requirement without impacting safety.",
+     "citations": [
+      "fr_2025-09733"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2026-03264",
+   "title": "Electronic Driver Vehicle Inspection Reports",
+   "sourceIds": [
+    "this_notice",
+    "fr_2025-09717"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA clarifies the requirement to complete a Driver Vehicle Inspection Report based upon a public comment filed by the National Tank Truck Carriers.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA clarifies the requirement to complete a Driver Vehicle Inspection Report (DVIR) based upon a public comment filed by the National Tank Truck Carriers (NTTC).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The Driver Vehicle Inspection Report may already be completed electronically, and the explicit language in this rule will make this clear.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "This will encourage motor carriers and drivers to utilize electronic, cost-saving methods when completing Driver Vehicle Inspection Reports.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA proposes to clarify the requirement to complete a Daily Vehicle Inspection Report, based upon a public comment filed by the National Tank Truck Carriers.",
+     "citations": [
+      "fr_2025-09717"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The Daily Vehicle Inspection Report may already be completed electronically, however this notice of proposed rulemaking proposes explicit language to make this clear.",
+     "citations": [
+      "fr_2025-09717"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety Regulations (FMCSRs) to rescind the requirement that the rear impact guard be permanently marked or labeled with a certification from the impact guard manufacturer as required by the National Highway Traffic Safety Administration's (NHTSA) applicable Federal Motor Vehicle Safety Standard (FMVSS).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "This will encourage motor carriers and drivers to utilize electronic, cost-saving methods when completing Daily Vehicle Inspection Reports.",
+     "citations": [
+      "fr_2025-09717"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2026-04314",
+   "title": "Parts and Accessories Necessary for Safe Operation; Application for an Exemption From Grote Industries, LLC",
+   "sourceIds": [
+    "this_notice",
+    "fr_2026-02522"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA extends the comment period for its February 9, 2026, notice requesting public comment on an application from Grote Industries, LLC for an exemption from the requirement that exterior lighting devices on commercial motor vehicles be steady-burning.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA extends the comment period for its February 9, 2026, notice requesting public comment on an application from Grote Industries, LLC (Grote) for an exemption from the requirement that exterior lighting devices on commercial motor vehicles (CMVs) be steady-burning.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The exemption would allow motor carriers to operate commercial motor vehicles equipped with auxiliary rear or side lamps that flash or strobe when controlled by Grote's Rear-End Collision Warning system.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The Agency finds it is appropriate to extend the comment period to provide interested parties additional time to submit their responses to the notice and extends the deadline for the submission of comments by 60 days.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA requests public comment on an application from Grote Industries, LLC for an exemption from the requirement that exterior lighting devices on commercial motor vehicles be steady-burning.",
+     "citations": [
+      "fr_2026-02522"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety Regulations (FMCSRs) to rescind the requirement that the rear impact guard be permanently marked or labeled with a certification from the impact guard manufacturer as required by the National Highway Traffic Safety Administration's (NHTSA) applicable Federal Motor Vehicle Safety Standard (FMVSS).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The exemption would allow motor carriers to operate commercial motor vehicles equipped with auxiliary rear or side lamps that flash or strobe when controlled by Grote's Rear-End Collision Warning system.",
+     "citations": [
+      "fr_2026-02522"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2026-06378",
+   "title": "Parts and Accessories Necessary for Safe Operation; Application for Exemption Renewal From Loomis Armored US, LLC",
+   "sourceIds": [
+    "this_notice",
+    "fr_2026-21950"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA requests public comment on an application from Loomis Armored US, LLC seeking renewal of a 5-year exemption allowing armored vehicles to operate with welded-shut cab doors and two added doors behind the cab.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA requests public comment on an application from Loomis Armored US, LLC (Loomis), seeking renewal of a 5-year exemption that would allow Loomis to continue operating armored vehicles with welded- shut cab doors and the addition of two doors behind the cab.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA publishes this notice as required by statute and reviews the application, safety analyses, and public comments before deciding to grant or deny the exemption.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "This notice is not a preliminary decision on the exemption matter.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA granted an exemption renewal to Loomis Armored US, LLC allowing the continued operation of armored vehicles with welded-shut cab doors and two added doors behind the cab.",
+     "citations": [
+      "fr_2026-21950"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety Regulations (FMCSRs) to rescind the requirement that the rear impact guard be permanently marked or labeled with a certification from the impact guard manufacturer as required by the National Highway Traffic Safety Administration's (NHTSA) applicable Federal Motor Vehicle Safety Standard (FMVSS).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The agency analyzed the renewal application and public comments, determining that the exemption is likely to achieve a level of safety equivalent to or greater than the level achieved without the exemption.",
+     "citations": [
+      "fr_2026-21950"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2026-07288",
+   "title": "Parts and Accessories Necessary for Safe Operation; Application for Exemption From Aurora Operations, Inc.",
+   "sourceIds": [
+    "this_notice",
+    "fr_2026-20734"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA requests public comment on Aurora Operations, Inc.'s application for a five-year exemption regarding certain warning devices.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA requests public comment on Aurora Operations, Inc.'s (Aurora) application for a five-year exemption to allow commercial motor vehicles (CMVs) equipped with a Level 4 automated driving system (ADS) to use a set of cab-mounted warning beacons in lieu of placing reflective warning triangles or fusees around the stopped vehicle.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The exemption would allow commercial motor vehicles equipped with a Level 4 automated driving system to use a set of cab-mounted warning beacons instead of placing reflective warning triangles or fusees around a stopped vehicle.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The exemption would apply to Aurora and other motor carriers operating Level 4 automated driving system-equipped commercial motor vehicles that notify FMCSA in writing before operating under the exemption.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA announced its decision to grant a limited five-year exemption to Aurora Operations, Inc. and other motor carriers operating Level 4 automated driving system-equipped commercial motor vehicles, with prior notice to FMCSA.",
+     "citations": [
+      "fr_2026-20734"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The exemption grants relief from compliance with warning device placement requirements, steady-burning lamp requirements, and requirements for the types and number of warning devices.",
+     "citations": [
+      "fr_2026-20734"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety Regulations (FMCSRs) to rescind the requirement that the rear impact guard be permanently marked or labeled with a certification from the impact guard manufacturer as required by the National Highway Traffic Safety Administration's (NHTSA) applicable Federal Motor Vehicle Safety Standard (FMVSS).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The Agency determined that granting the exemption would likely achieve a level of safety equivalent to or greater than the level of safety provided by the regulation.",
+     "citations": [
+      "fr_2026-20734"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2026-08391",
+   "title": "Agency Information Collection Activities; Renewal of an Approved Information Collection Request: Training Certification for Drivers of Longer Combination Vehicles",
+   "sourceIds": [
+    "this_notice",
+    "fr_2025-23325"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA plans to submit an Information Collection Request titled Training Certification for Drivers of Longer Combination Vehicles to the Office of Management and Budget for review and approval under the Paperwork Reduction Act of 1995.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "In accordance with the Paperwork Reduction Act of 1995, FMCSA announces its plan to submit the Information Collection Request (ICR) described below to the Office of Management and Budget (OMB) for review and approval.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "This Information Collection Request bears OMB Control No. 2126-0026 and relates to driver certification requirements for operating longer combination vehicles and associated motor carrier recordkeeping requirements.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "Motor carriers must produce an LCV Driver-Training Certificate for each LCV driver upon inquiry by authorized Federal, State, or local officials.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "No comments were received in response to the 60-day Federal Register notice.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety Regulations (FMCSRs) to rescind the requirement that the rear impact guard be permanently marked or labeled with a certification from the impact guard manufacturer as required by the National Highway Traffic Safety Administration's (NHTSA) applicable Federal Motor Vehicle Safety Standard (FMVSS).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA announced its plan to submit the same Information Collection Request for renewal and invited public comment under the Paperwork Reduction Act of 1995.",
+     "citations": [
+      "fr_2025-23325"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2026-09633",
+   "title": "Agency Information Collection Activities; Renewal of an Approved Information Collection: Request for Revocation of Authority Granted",
+   "sourceIds": [
+    "this_notice",
+    "fr_2026-21647"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA plans to submit an Information Collection Request titled Request for Revocation of Authority Granted to the Office of Management and Budget for review and approval under the Paperwork Reduction Act of 1995.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "In accordance with the Paperwork Reduction Act of 1995, FMCSA announces its plan to submit the Information Collection Request (ICR) described below to the Office of Management and Budget (OMB) for its review and approval and invites public comment.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA requests approval to renew OMB control number 2126-0018, which allows motor carriers, freight forwarders, and property brokers to request the voluntary revocation of all or part of their operating authority registration using Form OCE-46.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety Regulations (FMCSRs) to rescind the requirement that the rear impact guard be permanently marked or labeled with a certification from the impact guard manufacturer as required by the National Highway Traffic Safety Administration's (NHTSA) applicable Federal Motor Vehicle Safety Standard (FMVSS).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA previously announced its plan to submit the renewal of the ICR titled Request for Revocation of Authority Granted, OMB Control No. 2126-0018, to the Office of Management and Budget for review and approval.",
+     "citations": [
+      "fr_2026-21647"
+     ],
+     "verdict": "partly",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2026-12449",
+   "title": "Removal of Self-Reporting Requirement",
+   "sourceIds": [
+    "this_notice",
+    "fr_2025-09713"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA amends the regulations requiring commercial driver's license (CDL) holders to self-report motor vehicle violations to their State of domicile.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA amends the regulations requiring commercial driver's license (CDL) holders to self-report motor vehicle violations to their State of domicile.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "With the implementation of the exclusive electronic exchange (EEE) of violations between State Drivers Licensing Agencies (SDLAs) in 2024, self-reporting is no longer necessary.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "This action supports the Administration's deregulatory efforts.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA proposes to revise its regulations requiring commercial driver's license (CDL) holders to self-report motor vehicle violations to their State of domicile.",
+     "citations": [
+      "fr_2025-09713"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "With the implementation of the exclusive electronic exchange of violations between State drivers licensing agencies (SDLAs) in 2024, self-reporting is no longer necessary.",
+     "citations": [
+      "fr_2025-09713"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety Regulations (FMCSRs) to rescind the requirement that the rear impact guard be permanently marked or labeled with a certification from the impact guard manufacturer as required by the National Highway Traffic Safety Administration's (NHTSA) applicable Federal Motor Vehicle Safety Standard (FMVSS).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "This action supports the Administration's deregulatory efforts.",
+     "citations": [
+      "fr_2025-09713"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  },
+  {
+   "documentNumber": "2026-15431",
+   "title": "Parts and Accessories Necessary for Safe Operation; Application for Exemption Renewal From Charles Machine Works, Inc.",
+   "sourceIds": [
+    "this_notice",
+    "fr_2026-00780"
+   ],
+   "draftUsable": true,
+   "statements": [
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA withdraws its January 16, 2026, notice that requested public comment on an application from Charles Machine Works, Inc. seeking renewal of a five-year exemption from the prohibition against gravity-fed or siphon-fed fuel systems on commercial motor vehicles.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_supported",
+     "text": "FMCSA withdraws its January 16, 2026, notice that requested public comment on an application from Charles Machine Works, Inc. (CMW) seeking renewal of a five-year exemption from the Agency's prohibition against the use of gravity-fed or siphon-fed fuel systems on commercial motor vehicles (CMVs).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "FMCSA determined that its February 19, 2026, final rule titled 'Parts and Accessories Necessary for Safe Operation; Auxiliary Fuel Tanks' provided the requested relief by amending the relevant regulation.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "what_it_says",
+     "text": "The exemption is now unnecessary for Charles Machine Works, Inc. and any other entities that might have planned to request an exemption from the prohibition on gravity-fed or siphon-fed fuel systems on commercial motor vehicles.",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "FMCSA requested public comment on an application from Charles Machine Works, Inc., a wholly owned subsidiary of The Toro Company, seeking renewal of a 5-year exemption from the Agency's prohibition against the use of gravity-fed or siphon-fed fuel systems on commercial motor vehicles.",
+     "citations": [
+      "fr_2026-00780"
+     ],
+     "verdict": "supported",
+     "conclusion": false,
+     "kept": true
+    },
+    {
+     "origin": "control_unsupported",
+     "text": "FMCSA proposes to amend the Federal Motor Carrier Safety Regulations (FMCSRs) to rescind the requirement that the rear impact guard be permanently marked or labeled with a certification from the impact guard manufacturer as required by the National Highway Traffic Safety Administration's (NHTSA) applicable Federal Motor Vehicle Safety Standard (FMVSS).",
+     "citations": [
+      "this_notice"
+     ],
+     "verdict": "unsupported",
+     "conclusion": false
+    },
+    {
+     "origin": "model",
+     "kind": "related_notice",
+     "text": "The exemption would allow commercial motor vehicles equipped with certain auxiliary equipment to use gravity-fed or siphon-fed fuel systems when the auxiliary equipment is operated only while the commercial motor vehicle is stationary.",
+     "citations": [
+      "fr_2026-00780"
+     ],
+     "verdict": "partly",
+     "conclusion": false,
+     "kept": true
+    }
+   ]
+  }
+ ]
+}
